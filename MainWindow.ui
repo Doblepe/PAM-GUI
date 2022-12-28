@@ -18,7 +18,7 @@
     <rect>
      <x>-10</x>
      <y>0</y>
-     <width>1771</width>
+     <width>1791</width>
      <height>1011</height>
     </rect>
    </property>
@@ -57,7 +57,7 @@
      <string>Choose your option</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="login">
+   <widget class="QPushButton" name="citarScreen">
     <property name="geometry">
      <rect>
       <x>110</x>
@@ -72,10 +72,10 @@ background-color: rgb(170, 255, 255);
 font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
     </property>
     <property name="text">
-     <string>Calendar</string>
+     <string>Citar</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="create">
+   <widget class="QPushButton" name="createKidScreen">
     <property name="geometry">
      <rect>
       <x>490</x>
@@ -93,7 +93,34 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
      <string>Create a Kid</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="agendaScreen">
+    <property name="geometry">
+     <rect>
+      <x>860</x>
+      <y>350</y>
+      <width>331</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius:20px;
+background-color: rgb(170, 255, 255);
+font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Agenda</string>
+    </property>
+   </widget>
   </widget>
+  <action name="actionHome">
+   <property name="icon">
+    <iconset>
+     <normaloff>fugue-icons-3.5.6/icons/home.png</normaloff>fugue-icons-3.5.6/icons/home.png</iconset>
+   </property>
+   <property name="text">
+    <string>Home</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

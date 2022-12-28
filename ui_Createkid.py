@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(1214, 800)
+        Dialog.resize(1131, 800)
         self.bgwidget = QtWidgets.QWidget(Dialog)
         self.bgwidget.setGeometry(QtCore.QRect(0, 0, 1301, 801))
         self.bgwidget.setStyleSheet("background-color:rgb(144, 158, 184);")
@@ -85,15 +85,8 @@ class Ui_Dialog(object):
         self.label_6.setGeometry(QtCore.QRect(560, 220, 81, 20))
         self.label_6.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
         self.label_6.setObjectName("label_6")
-        self.comboBox = QtWidgets.QComboBox(self.bgwidget)
-        self.comboBox.setGeometry(QtCore.QRect(670, 430, 111, 51))
-        self.comboBox.setStyleSheet("background-color:white;\n"
-"font: 12pt \"MS Shell Dlg 2\";")
-        self.comboBox.setObjectName("comboBox")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
         self.label_8 = QtWidgets.QLabel(self.bgwidget)
-        self.label_8.setGeometry(QtCore.QRect(570, 430, 81, 20))
+        self.label_8.setGeometry(QtCore.QRect(560, 450, 81, 20))
         self.label_8.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
         self.label_8.setObjectName("label_8")
         self.label_7 = QtWidgets.QLabel(self.bgwidget)
@@ -129,6 +122,21 @@ class Ui_Dialog(object):
         self.back = QtWidgets.QPushButton(self.bgwidget)
         self.back.setGeometry(QtCore.QRect(970, 50, 151, 41))
         self.back.setObjectName("back")
+        self.Public = QtWidgets.QCheckBox(self.bgwidget)
+        self.Public.setGeometry(QtCore.QRect(670, 430, 191, 51))
+        font = QtGui.QFont()
+        font.setFamily("MS Shell Dlg 2")
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.Public.setFont(font)
+        self.Public.setStyleSheet("background-color:white;\n"
+"border-radius: 20px;\n"
+"font: 12pt \"MS Shell Dlg 2\";\n"
+"padding-left: 15px")
+        self.Public.setChecked(True)
+        self.Public.setObjectName("Public")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -143,12 +151,10 @@ class Ui_Dialog(object):
         self.label_4.setText(_translate("Dialog", "Progenitor 1"))
         self.label_5.setText(_translate("Dialog", "Email"))
         self.label_6.setText(_translate("Dialog", "Birthday"))
-        self.comboBox.setCurrentText(_translate("Dialog", "Público"))
-        self.comboBox.setItemText(0, _translate("Dialog", "Público"))
-        self.comboBox.setItemText(1, _translate("Dialog", "Privado"))
         self.label_8.setText(_translate("Dialog", "Proviene de"))
         self.label_7.setText(_translate("Dialog", "Progenitor 2"))
         self.label_9.setText(_translate("Dialog", "Teléfono"))
         self.label_10.setText(_translate("Dialog", "Teléfono"))
         self.back.setText(_translate("Dialog", "Back to Main"))
+        self.Public.setText(_translate("Dialog", "Público"))
 import placeholder_rc

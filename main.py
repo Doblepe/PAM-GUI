@@ -43,29 +43,32 @@ class MainWindow(QDialog):
     def __init__(self):
         super(MainWindow, self).__init__()
         loadUi("MainWindow.ui",self)
-        self.login.clicked.connect(self.gotoCalendar)
-        self.create.clicked.connect(self.gotocreate)
+        self.citarScreen.clicked.connect(self.gotoCreateDate)
+        self.createKidScreen.clicked.connect(self.gotocreate)
+        self.agendaScreen.clicked.connect(self.gotoCreateAgendaScreen)
 
-    def gotoCalendar(self):
-        calendar = CreateCalendarScreen()
-        widget.addWidget(calendar)
+    def gotoCreateDate(self):
+        createDate = CreateDateScreen()
+        widget.addWidget(createDate)
         widget.setCurrentIndex(widget.currentIndex()+1)
-
     def gotocreate(self):
-        create = CreatekidScreen()
-        widget.addWidget(create)
+        createKid = CreatekidScreen()
+        widget.addWidget(createKid)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+    def gotoCreateAgendaScreen(self):
+        createCalendar = CreateAgendaScreen()
+        widget.addWidget(createCalendar)
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
 ## ---------------------------------------------------------------------------
 
-class CreateCalendarScreen(QDialog):
+class CreateDateScreen(QDialog):
     def __init__(self):
-        super(CreateCalendarScreen, self).__init__()
+        super(CreateDateScreen, self).__init__()
         loadUi("QCalendar.ui",self)
         self.BtnBack.clicked.connect(self.gotoMainWindow)
         self.calendarWidget.selectionChanged.connect(self.calendarDateChanged)
         #self.calendarDateChanged()
-        self.BtnSaveChanges.clicked.connect(self.saveChanges)
         self.BtnAddNew.clicked.connect(self.addNewTask)
 
     def calendarDateChanged(self):
@@ -75,8 +78,7 @@ class CreateCalendarScreen(QDialog):
         main = MainWindow()
         widget.addWidget(main)
         widget.setCurrentIndex(widget.currentIndex()+1)
-    def saveChanges(self):
-        pass
+
     def addNewTask(self):
         hourselected = str(self.timefield.text())
         kid = str(self.nombreField.text())
@@ -113,7 +115,19 @@ class CreateCalendarScreen(QDialog):
         # print(str(cita))
 
 ## ---------------------------------------------------------------------------
+class CreateAgendaScreen(QDialog):
+    def __init__(self):
+        super(CreateAgendaScreen, self).__init__()
+        loadUi("Agenda.ui",self)
+        self.BtnBack.clicked.connect(self.gotoMainWindow)
+        #self.calendarWidget.selectionChanged.connect(self.calendarDateChanged)
+    
+    def gotoMainWindow(self):
+        main = MainWindow()
+        widget.addWidget(main)
+        widget.setCurrentIndex(widget.currentIndex()+1)
 
+## -------------------------------------------------------------------------
 class CreatekidScreen(QDialog):
     def __init__(self):
         super(CreatekidScreen, self).__init__()
@@ -122,18 +136,46 @@ class CreatekidScreen(QDialog):
         self.back.clicked.connect(self.gotoMainWindow)
     def savekidfunction(self):
         print('saving')
-        email = self.emailfield.text()
+       
         nombre = self.nombrefield.text()
         progenitor1 = self.progenitor1field.text()
         tfn1 = self.tfn1field.text()
         progenirtor2 = self.progenitor2field.text()
         tfn2 = self.tfn2field.text()
         birthday = self.birthdayfield.text()
-        comboBox = self.comboBox.itemText()
+        if self.Public.isChecked() == True:
+            public = "Público"
+        else:
+            public = "Privado"
+        email = self.emailfield.text()
 
-
-        if len(email)==0 or len(nombre)==0 or len(progenitor1)==0 or len(tfn1)==0 or len(progenirtor2)==0 or len(tfn2)==0 or len(birthday)==0 or len(comboBox)==0:
+        if len(email)==0 or len(nombre)==0 or len(progenitor1)==0 or len(tfn1)==0 or len(progenirtor2)==0 or len(tfn2)==0 or len(birthday)==0: 
             self.error.setText("Please fill in all inputs.")
+        print(public)    
+        print(email)
+        print(nombre)
+        print(progenitor1)
+        print(tfn1)
+        print(progenirtor2)
+        print(tfn2)
+        print(birthday)
+        #print(comboBox)
+        # try:
+        #     db = sqlite3.connect("data.db")
+        #     cursor = db.cursor()
+        #     cursor.execute(
+        #         '''CREATE TABLE IF NOT EXISTS Pekes( Nombre varchar(60) 
+        #         PRIMARY KEY, 
+        #         completed VARCHAR(100), 
+        #         date DATE, 
+        #         hour VARCHAR(255)
+        #         ); '''
+        #     )
+        #     db.commit()
+        #     print('TAbla creada')
+        # except Exception as e:
+        #     print(e)
+
 
         # elif password!=confirmpassword:
         #     self.error.setText("Passwords do not match.")

@@ -33,7 +33,7 @@ font: 13pt;</string>
   <widget class="QListWidget" name="listWidget">
    <property name="geometry">
     <rect>
-     <x>790</x>
+     <x>660</x>
      <y>180</y>
      <width>391</width>
      <height>351</height>
@@ -41,34 +41,6 @@ font: 13pt;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">background:white</string>
-   </property>
-  </widget>
-  <widget class="QTimeEdit" name="timefield">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>580</y>
-     <width>118</width>
-     <height>26</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background:white;
-font: 13pt;
-</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="BtnAddNew">
-   <property name="geometry">
-    <rect>
-     <x>700</x>
-     <y>650</y>
-     <width>121</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Add-new</string>
    </property>
   </widget>
   <widget class="QPushButton" name="BtnBack">
@@ -107,38 +79,6 @@ background: #01BFFF;
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QLineEdit" name="nombreField">
-   <property name="geometry">
-    <rect>
-     <x>360</x>
-     <y>570</y>
-     <width>281</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background:white</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>200</x>
-     <y>570</y>
-     <width>131</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background:white;</string>
-   </property>
-   <property name="text">
-    <string>Nombre del niño</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
   <widget class="QLabel" name="lblFeedback">
    <property name="geometry">
     <rect>
@@ -154,6 +94,19 @@ font:12pt;</string>
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>710</x>
+     <y>600</y>
+     <width>211</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Save Changes</string>
    </property>
   </widget>
  </widget>

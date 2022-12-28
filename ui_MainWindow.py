@@ -16,7 +16,7 @@ class Ui_Dialog(object):
         Dialog.setObjectName("Dialog")
         Dialog.resize(1769, 1012)
         self.bgwidget = QtWidgets.QWidget(Dialog)
-        self.bgwidget.setGeometry(QtCore.QRect(-10, 0, 1771, 1011))
+        self.bgwidget.setGeometry(QtCore.QRect(-10, 0, 1791, 1011))
         self.bgwidget.setStyleSheet("background-color:rgb(144, 158, 184);")
         self.bgwidget.setObjectName("bgwidget")
         self.label = QtWidgets.QLabel(self.bgwidget)
@@ -27,18 +27,29 @@ class Ui_Dialog(object):
         self.label_2.setGeometry(QtCore.QRect(110, 190, 391, 41))
         self.label_2.setStyleSheet("font: 16pt \"MS Shell Dlg 2\";color:rgb(255, 255, 255)")
         self.label_2.setObjectName("label_2")
-        self.login = QtWidgets.QPushButton(self.bgwidget)
-        self.login.setGeometry(QtCore.QRect(110, 350, 341, 51))
-        self.login.setStyleSheet("border-radius:20px;\n"
+        self.citarScreen = QtWidgets.QPushButton(self.bgwidget)
+        self.citarScreen.setGeometry(QtCore.QRect(110, 350, 341, 51))
+        self.citarScreen.setStyleSheet("border-radius:20px;\n"
 "background-color: rgb(170, 255, 255);\n"
 "font: 14pt \"MS Shell Dlg 2\";")
-        self.login.setObjectName("login")
-        self.create = QtWidgets.QPushButton(self.bgwidget)
-        self.create.setGeometry(QtCore.QRect(490, 350, 341, 51))
-        self.create.setStyleSheet("border-radius:20px;\n"
+        self.citarScreen.setObjectName("citarScreen")
+        self.createKidScreen = QtWidgets.QPushButton(self.bgwidget)
+        self.createKidScreen.setGeometry(QtCore.QRect(490, 350, 341, 51))
+        self.createKidScreen.setStyleSheet("border-radius:20px;\n"
 "background-color: rgb(170, 255, 255);\n"
 "font: 14pt \"MS Shell Dlg 2\";")
-        self.create.setObjectName("create")
+        self.createKidScreen.setObjectName("createKidScreen")
+        self.agendaScreen = QtWidgets.QPushButton(self.bgwidget)
+        self.agendaScreen.setGeometry(QtCore.QRect(860, 350, 331, 51))
+        self.agendaScreen.setStyleSheet("border-radius:20px;\n"
+"background-color: rgb(170, 255, 255);\n"
+"font: 14pt \"MS Shell Dlg 2\";")
+        self.agendaScreen.setObjectName("agendaScreen")
+        self.actionHome = QtWidgets.QAction(Dialog)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("/home/vicdoblepe/Escritorio/Psico-project/pyqt5-full-app-tutorial-for-beginners-main/fugue-icons-3.5.6/icons/home.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.actionHome.setIcon(icon)
+        self.actionHome.setObjectName("actionHome")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -48,5 +59,7 @@ class Ui_Dialog(object):
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
         self.label.setText(_translate("Dialog", "Welcome"))
         self.label_2.setText(_translate("Dialog", "Choose your option"))
-        self.login.setText(_translate("Dialog", "Calendar"))
-        self.create.setText(_translate("Dialog", "Create a Kid"))
+        self.citarScreen.setText(_translate("Dialog", "Citar"))
+        self.createKidScreen.setText(_translate("Dialog", "Create a Kid"))
+        self.agendaScreen.setText(_translate("Dialog", "Agenda"))
+        self.actionHome.setText(_translate("Dialog", "Home"))
