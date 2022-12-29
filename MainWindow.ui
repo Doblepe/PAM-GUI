@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1769</width>
-    <height>1012</height>
+    <height>1011</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,9 +16,9 @@
   <widget class="QWidget" name="bgwidget" native="true">
    <property name="geometry">
     <rect>
-     <x>-10</x>
+     <x>-60</x>
      <y>0</y>
-     <width>1791</width>
+     <width>1831</width>
      <height>1011</height>
     </rect>
    </property>
@@ -109,6 +109,42 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
     </property>
     <property name="text">
      <string>Agenda</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="computoScreen">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>460</y>
+      <width>361</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius:20px;
+background-color: rgb(170, 255, 255);
+font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Cómputo</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="infoScreen">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>460</y>
+      <width>361</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius:20px;
+background-color: rgb(170, 255, 255);
+font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Información</string>
     </property>
    </widget>
   </widget>

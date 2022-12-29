@@ -27,10 +27,11 @@
    </property>
    <property name="styleSheet">
     <string notr="true">background:white;
-font: 13pt;</string>
+font: 13pt;
+color:black;</string>
    </property>
   </widget>
-  <widget class="QListWidget" name="listWidget">
+  <widget class="QListWidget" name="TaskListWidget">
    <property name="geometry">
     <rect>
      <x>660</x>
@@ -96,7 +97,7 @@ font:12pt;</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="saveButton">
    <property name="geometry">
     <rect>
      <x>710</x>

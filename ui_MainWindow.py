@@ -14,9 +14,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(1769, 1012)
+        Dialog.resize(1769, 1011)
         self.bgwidget = QtWidgets.QWidget(Dialog)
-        self.bgwidget.setGeometry(QtCore.QRect(-10, 0, 1791, 1011))
+        self.bgwidget.setGeometry(QtCore.QRect(-60, 0, 1831, 1011))
         self.bgwidget.setStyleSheet("background-color:rgb(144, 158, 184);")
         self.bgwidget.setObjectName("bgwidget")
         self.label = QtWidgets.QLabel(self.bgwidget)
@@ -45,6 +45,18 @@ class Ui_Dialog(object):
 "background-color: rgb(170, 255, 255);\n"
 "font: 14pt \"MS Shell Dlg 2\";")
         self.agendaScreen.setObjectName("agendaScreen")
+        self.computoScreen = QtWidgets.QPushButton(self.bgwidget)
+        self.computoScreen.setGeometry(QtCore.QRect(100, 460, 361, 51))
+        self.computoScreen.setStyleSheet("border-radius:20px;\n"
+"background-color: rgb(170, 255, 255);\n"
+"font: 14pt \"MS Shell Dlg 2\";")
+        self.computoScreen.setObjectName("computoScreen")
+        self.infoScreen = QtWidgets.QPushButton(self.bgwidget)
+        self.infoScreen.setGeometry(QtCore.QRect(490, 460, 361, 51))
+        self.infoScreen.setStyleSheet("border-radius:20px;\n"
+"background-color: rgb(170, 255, 255);\n"
+"font: 14pt \"MS Shell Dlg 2\";")
+        self.infoScreen.setObjectName("infoScreen")
         self.actionHome = QtWidgets.QAction(Dialog)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("/home/vicdoblepe/Escritorio/Psico-project/pyqt5-full-app-tutorial-for-beginners-main/fugue-icons-3.5.6/icons/home.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -62,4 +74,6 @@ class Ui_Dialog(object):
         self.citarScreen.setText(_translate("Dialog", "Citar"))
         self.createKidScreen.setText(_translate("Dialog", "Create a Kid"))
         self.agendaScreen.setText(_translate("Dialog", "Agenda"))
+        self.computoScreen.setText(_translate("Dialog", "Cómputo"))
+        self.infoScreen.setText(_translate("Dialog", "Información"))
         self.actionHome.setText(_translate("Dialog", "Home"))

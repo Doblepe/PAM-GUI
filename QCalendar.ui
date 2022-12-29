@@ -30,26 +30,13 @@
 font: 13pt;</string>
    </property>
   </widget>
-  <widget class="QListWidget" name="listWidget">
-   <property name="geometry">
-    <rect>
-     <x>790</x>
-     <y>180</y>
-     <width>391</width>
-     <height>351</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background:white</string>
-   </property>
-  </widget>
   <widget class="QTimeEdit" name="timefield">
    <property name="geometry">
     <rect>
      <x>50</x>
-     <y>580</y>
-     <width>118</width>
-     <height>26</height>
+     <y>565</y>
+     <width>151</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -61,14 +48,14 @@ font: 13pt;
   <widget class="QPushButton" name="BtnAddNew">
    <property name="geometry">
     <rect>
-     <x>700</x>
-     <y>650</y>
+     <x>60</x>
+     <y>640</y>
      <width>121</width>
      <height>41</height>
     </rect>
    </property>
    <property name="text">
-    <string>Add-new</string>
+    <string>Añadir Cita</string>
    </property>
   </widget>
   <widget class="QPushButton" name="BtnBack">
@@ -101,39 +88,7 @@ background: #01BFFF;
 </string>
    </property>
    <property name="text">
-    <string>Agenda</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="nombreField">
-   <property name="geometry">
-    <rect>
-     <x>360</x>
-     <y>570</y>
-     <width>281</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background:white</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>200</x>
-     <y>570</y>
-     <width>131</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background:white;</string>
-   </property>
-   <property name="text">
-    <string>Nombre del niño</string>
+    <string>Preprarar cita</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -142,10 +97,10 @@ background: #01BFFF;
   <widget class="QLabel" name="lblFeedback">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>640</y>
-     <width>621</width>
-     <height>71</height>
+     <x>430</x>
+     <y>560</y>
+     <width>741</width>
+     <height>151</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -156,17 +111,74 @@ font:12pt;</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="BtnPopulate">
+  <widget class="QComboBox" name="ComboPekes">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
-     <x>950</x>
-     <y>590</y>
-     <width>83</width>
+     <x>610</x>
+     <y>110</y>
+     <width>201</width>
      <height>25</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color: black; 
+background: white;
+</string>
+   </property>
+   <property name="editable">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="BtnAddSpecialDate">
+   <property name="geometry">
+    <rect>
+     <x>980</x>
+     <y>280</y>
+     <width>151</width>
+     <height>31</height>
+    </rect>
+   </property>
    <property name="text">
-    <string>Populate</string>
+    <string>Añadior cita especial</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="SpecialDateDesc">
+   <property name="geometry">
+    <rect>
+     <x>650</x>
+     <y>230</y>
+     <width>281</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: white;</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>650</x>
+     <y>190</y>
+     <width>211</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: white;
+</string>
+   </property>
+   <property name="text">
+    <string>Describe brevemente la cita</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
  </widget>
