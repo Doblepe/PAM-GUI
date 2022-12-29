@@ -17,7 +17,6 @@ class LoginScreen(QDialog):
         user = self.emailfield.text()
         password = self.passwordfield.text()
         self.login.clicked.connect(self.gotoMainWindow)
-
         # if len(user)==0 or len(password)==0:
         #     self.error.setText("Please input all fields.")
 
@@ -69,7 +68,8 @@ class CreateDateScreen(QDialog):
         self.BtnBack.clicked.connect(self.gotoMainWindow)
         self.calendarWidget.selectionChanged.connect(self.calendarDateChanged)
         #self.calendarDateChanged()
-        self.BtnAddNew.clicked.connect(self.addNewTask)
+        self.BtnAddNew.clicked.connect(self.addNewDate)
+        self.BtnPopulate.clicked.connect(self.PopulateComboBox)
 
     def calendarDateChanged(self):
         dateSelected = self.calendarWidget.selectedDate().toPyDate()
@@ -79,11 +79,10 @@ class CreateDateScreen(QDialog):
         widget.addWidget(main)
         widget.setCurrentIndex(widget.currentIndex()+1)
 
-    def addNewTask(self):
+    def addNewDate(self):
         hourselected = str(self.timefield.text())
         kid = str(self.nombreField.text())
         dateSelected = self.calendarWidget.selectedDate().toPyDate()
-      
         # try:
         #     db = sqlite3.connect("data.db")
         #     cursor = db.cursor()
@@ -99,18 +98,32 @@ class CreateDateScreen(QDialog):
         #     print('TAbla creada')
         # except Exception as e:
         #     print(e)
-        try:
-            db = sqlite3.connect("data.db")
-            cursor = db.cursor()
-            query = "INSERT INTO Task(Nombre, completed, date, hour) VALUES (?,?,?,?)"
-            row = (kid, "NO", dateSelected, hourselected)
-            cursor.execute(query, row)
-            db.commit()
-            self.lblFeedback.setText(f"Hemos añadido una cita con {kid} el {dateSelected} a las {hourselected}")
-        except Exception as e:
-             self.lblFeedback.setText(e)
-        # print(dateSelected)
-        # print(hourselected)
+
+        if len(hourselected) ==0 or len(kid)==0 or dateSelected ==0: 
+            self.lblFeedback.setText(f"Asegúrate de haber rellendao todos los campos")
+        else:       
+            try:
+                    self.lblFeedback.setText(f"Asegúrate de haber rellendao todos los campos")
+                    db = sqlite3.connect("data.db")
+                    cursor = db.cursor()
+                    query = "INSERT INTO Task(Nombre, completed, date, hour) VALUES (?,?,?,?)"
+                    row = (kid, "NO", dateSelected, hourselected)
+                    cursor.execute(query, row)
+                    db.commit()
+                    self.lblFeedback.setText(f"Hemos añadido una cita con {kid} el {dateSelected} a las {hourselected}")
+                    db.close()
+            except Exception as e:
+                    self.lblFeedback.setText(e)
+    
+    def PopulateComboBox(self):
+        db = sqlite3.connect("data.db")
+        cursor = db.cursor()
+        query = "SELECT * From Pekes;"
+        pekes = cursor.execute(query)
+        for i in pekes:
+            print(i[0])
+
+    
         # cita = kid + dateSelected + hourselected
         # print(str(cita))
 
@@ -135,8 +148,6 @@ class CreatekidScreen(QDialog):
         self.savekid.clicked.connect(self.savekidfunction)
         self.back.clicked.connect(self.gotoMainWindow)
     def savekidfunction(self):
-        print('saving')
-       
         nombre = self.nombrefield.text()
         progenitor1 = self.progenitor1field.text()
         tfn1 = self.tfn1field.text()
@@ -144,39 +155,51 @@ class CreatekidScreen(QDialog):
         tfn2 = self.tfn2field.text()
         birthday = self.birthdayfield.text()
         if self.Public.isChecked() == True:
-            public = "Público"
+            origen = "Público"
         else:
-            public = "Privado"
+            origen = "Privado"
         email = self.emailfield.text()
 
         if len(email)==0 or len(nombre)==0 or len(progenitor1)==0 or len(tfn1)==0 or len(progenirtor2)==0 or len(tfn2)==0 or len(birthday)==0: 
             self.error.setText("Please fill in all inputs.")
-        print(public)    
-        print(email)
-        print(nombre)
-        print(progenitor1)
-        print(tfn1)
-        print(progenirtor2)
-        print(tfn2)
-        print(birthday)
-        #print(comboBox)
-        # try:
-        #     db = sqlite3.connect("data.db")
-        #     cursor = db.cursor()
-        #     cursor.execute(
-        #         '''CREATE TABLE IF NOT EXISTS Pekes( Nombre varchar(60) 
-        #         PRIMARY KEY, 
-        #         completed VARCHAR(100), 
-        #         date DATE, 
-        #         hour VARCHAR(255)
-        #         ); '''
-        #     )
-        #     db.commit()
-        #     print('TAbla creada')
-        # except Exception as e:
-        #     print(e)
+        try:
+            db = sqlite3.connect("data.db")
+            cursor = db.cursor()
+            cursor.execute(
+                '''CREATE TABLE IF NOT EXISTS Pekes( Nombre varchar(60) 
+                PRIMARY KEY, 
+                Progenitor1 VARCHAR(100),
+                Tfn1 VARCHAR(100),
+                Progenitor2 VARCHAR(100),
+                Tfn2 VARCHAR(100),
+                Origen VARCHAR(100),
+                Email VARCHAR(100),
+                Cumpleaños DATE
+                ); '''
+            )
+            db.commit()
+        except Exception as e:
+            print(e)
+        try:
+            db = sqlite3.connect("data.db")
+            cursor = db.cursor()
+            query = '''
+                    INSERT INTO Pekes (Nombre, Progenitor1, Tfn1, Progenitor2, Tfn2, Origen, Email, Cumpleaños) VALUES (?,?,?,?,?,?,?,?)
+            '''
+            row = (nombre,progenitor1,tfn1,progenirtor2,tfn2,origen,email,birthday)
+            cursor.execute(query, row)
+            db.commit()
+            db.close()
+        except Exception as e:
+            print(e)
 
 
+        # db = sqlite3.connect("data.db")
+        #             cursor = db.cursor()
+        #             query = "INSERT INTO Task(Nombre, completed, date, hour) VALUES (?,?,?,?)"
+        #             row = (kid, "NO", dateSelected, hourselected)
+        #             cursor.execute(query, row)
+        #             db.commit()
         # elif password!=confirmpassword:
         #     self.error.setText("Passwords do not match.")
         # else:
@@ -189,9 +212,6 @@ class CreatekidScreen(QDialog):
         #     conn.commit()
         #     conn.close()
 
-            # fillprofile = FillProfileScreen()
-            # widget.addWidget(fillprofile)
-            # widget.setCurrentIndex(widget.currentIndex()+1)
     def gotoMainWindow(self):
         main = MainWindow()
         widget.addWidget(main)

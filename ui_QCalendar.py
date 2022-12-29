@@ -61,6 +61,9 @@ class Ui_Calendar(object):
 "font:12pt;")
         self.lblFeedback.setText("")
         self.lblFeedback.setObjectName("lblFeedback")
+        self.BtnPopulate = QtWidgets.QPushButton(Calendar)
+        self.BtnPopulate.setGeometry(QtCore.QRect(950, 590, 83, 25))
+        self.BtnPopulate.setObjectName("BtnPopulate")
 
         self.retranslateUi(Calendar)
         QtCore.QMetaObject.connectSlotsByName(Calendar)
@@ -72,3 +75,4 @@ class Ui_Calendar(object):
         self.BtnBack.setText(_translate("Calendar", "Back to Main"))
         self.label.setText(_translate("Calendar", "Agenda"))
         self.label_2.setText(_translate("Calendar", "Nombre del niño"))
+        self.BtnPopulate.setText(_translate("Calendar", "Populate"))
