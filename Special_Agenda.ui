@@ -74,7 +74,7 @@ background: #01BFFF;
 </string>
    </property>
    <property name="text">
-    <string>Agenda</string>
+    <string> Agenda Especial</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -110,30 +110,17 @@ font:12pt;</string>
     <string>Save Changes</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="SpecialAgenda">
-   <property name="geometry">
-    <rect>
-     <x>80</x>
-     <y>620</y>
-     <width>161</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Special Agenda</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
      <x>670</x>
      <y>150</y>
-     <width>371</width>
+     <width>351</width>
      <height>17</height>
     </rect>
    </property>
    <property name="text">
-    <string>En esta agenda aparecen las citas normales </string>
+    <string>En esta agenda aparecen las coordinaciones </string>
    </property>
   </widget>
  </widget>

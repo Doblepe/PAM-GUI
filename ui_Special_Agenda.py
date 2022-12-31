@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/vicdoblepe/Escritorio/Psico-project/pyqt5-full-app-tutorial-for-beginners-main/Agenda.ui'
+# Form implementation generated from reading ui file '/home/vicdoblepe/Escritorio/Psico-project/pyqt5-full-app-tutorial-for-beginners-main/Special_Agenda.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -47,11 +47,8 @@ class Ui_Calendar(object):
         self.saveButton = QtWidgets.QPushButton(Calendar)
         self.saveButton.setGeometry(QtCore.QRect(710, 600, 211, 71))
         self.saveButton.setObjectName("saveButton")
-        self.SpecialAgenda = QtWidgets.QPushButton(Calendar)
-        self.SpecialAgenda.setGeometry(QtCore.QRect(80, 620, 161, 41))
-        self.SpecialAgenda.setObjectName("SpecialAgenda")
         self.label_2 = QtWidgets.QLabel(Calendar)
-        self.label_2.setGeometry(QtCore.QRect(670, 150, 371, 17))
+        self.label_2.setGeometry(QtCore.QRect(670, 150, 351, 17))
         self.label_2.setObjectName("label_2")
 
         self.retranslateUi(Calendar)
@@ -61,7 +58,6 @@ class Ui_Calendar(object):
         _translate = QtCore.QCoreApplication.translate
         Calendar.setWindowTitle(_translate("Calendar", "Form"))
         self.BtnBack.setText(_translate("Calendar", "Back to Main"))
-        self.label.setText(_translate("Calendar", "Agenda"))
+        self.label.setText(_translate("Calendar", " Agenda Especial"))
         self.saveButton.setText(_translate("Calendar", "Save Changes"))
-        self.SpecialAgenda.setText(_translate("Calendar", "Special Agenda"))
-        self.label_2.setText(_translate("Calendar", "En esta agenda aparecen las citas normales "))
+        self.label_2.setText(_translate("Calendar", "En esta agenda aparecen las coordinaciones "))

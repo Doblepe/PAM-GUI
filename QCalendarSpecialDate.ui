@@ -27,21 +27,22 @@
    </property>
    <property name="styleSheet">
     <string notr="true">background:white;
-font: 13pt;
-color:black;</string>
+font: 13pt;</string>
    </property>
   </widget>
-  <widget class="QListWidget" name="TaskListWidget">
+  <widget class="QTimeEdit" name="timefield">
    <property name="geometry">
     <rect>
-     <x>660</x>
-     <y>180</y>
-     <width>391</width>
-     <height>351</height>
+     <x>50</x>
+     <y>565</y>
+     <width>151</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background:white</string>
+    <string notr="true">background:white;
+font: 13pt;
+</string>
    </property>
   </widget>
   <widget class="QPushButton" name="BtnBack">
@@ -74,7 +75,7 @@ background: #01BFFF;
 </string>
    </property>
    <property name="text">
-    <string>Agenda</string>
+    <string>Preprarar cita</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -83,10 +84,10 @@ background: #01BFFF;
   <widget class="QLabel" name="lblFeedback">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>640</y>
-     <width>621</width>
-     <height>71</height>
+     <x>430</x>
+     <y>560</y>
+     <width>741</width>
+     <height>151</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -97,43 +98,53 @@ font:12pt;</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="saveButton">
+  <widget class="QPushButton" name="BtnAddSpecialDate">
    <property name="geometry">
     <rect>
-     <x>710</x>
-     <y>600</y>
-     <width>211</width>
-     <height>71</height>
+     <x>640</x>
+     <y>580</y>
+     <width>151</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="text">
-    <string>Save Changes</string>
+    <string>Añadior cita especial</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="SpecialAgenda">
+  <widget class="QLineEdit" name="SpecialDateDesc">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>620</y>
-     <width>161</width>
-     <height>41</height>
+     <x>650</x>
+     <y>230</y>
+     <width>521</width>
+     <height>291</height>
     </rect>
    </property>
-   <property name="text">
-    <string>Special Agenda</string>
+   <property name="styleSheet">
+    <string notr="true">background: white;</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>670</x>
-     <y>150</y>
-     <width>371</width>
-     <height>17</height>
+     <x>650</x>
+     <y>190</y>
+     <width>211</width>
+     <height>31</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background: white;
+</string>
+   </property>
    <property name="text">
-    <string>En esta agenda aparecen las citas normales </string>
+    <string>Describe brevemente la cita</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
  </widget>

@@ -152,7 +152,12 @@ class CreateDateScreen(QDialog):
 
         self.PopulateComboBox()
         self.BtnAddNew.clicked.connect(self.addNewDate)
-        self.BtnAddSpecialDate.clicked.connect(self.addNewSpecialDate)
+        self.BtnAddSpecialDate.clicked.connect(self.gotoSpecialDateScreen)
+
+    def gotoSpecialDateScreen(self):
+        specialDate = CreateSpecialDateScreen()
+        widget.addWidget(specialDate)
+        widget.setCurrentIndex(widget.currentIndex()+1)
 
     def addNewDate(self):
         hourselected = str(self.timefield.text())
@@ -173,6 +178,69 @@ class CreateDateScreen(QDialog):
         except Exception as e:
                    # self.lblFeedback.setText(e)
                    print(e)
+    
+    # def addNewSpecialDate(self):
+    #     hourselected = str(self.timefield.text())
+    #     description = self.SpecialDateDesc.text()
+    #     dateSelected = self.calendarWidget.selectedDate().toPyDate()
+    #     try:
+    #         db = sqlite3.connect("data.db")
+    #         cursor = db.cursor()
+    #         query = "INSERT INTO Unusual_task (Description, Completed, Date, Hour) VALUES (?,?,?,?)"
+    #         row = (description, "NO", dateSelected, hourselected)
+    #         cursor.execute(query, row)
+    #         db.commit()
+    #         self.lblFeedback.setText(f"Hemos añadido una cita con {description} el {dateSelected} a las {hourselected}")
+    #         db.close()
+    #     except Exception as e:
+    #                # self.lblFeedback.setText(e)
+    #                print(e)    
+     
+    def PopulateComboBox(self):
+        db = sqlite3.connect("data.db")
+        cursor = db.cursor()
+        query = "SELECT * From Pekes;"
+        pekes = cursor.execute(query)
+        for i in pekes:
+            self.ComboPekes.addItem(str(i[0]))  
+
+    def gotoMainWindow(self):
+        main = MainWindow()
+        widget.addWidget(main)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+
+
+## ---------------------------------------------------------------------------
+class CreateSpecialDateScreen(QDialog):
+    def __init__(self):
+        super(CreateSpecialDateScreen, self).__init__()
+        loadUi("QCalendarSpecialDate.ui",self)
+        self.BtnBack.clicked.connect(self.gotoMainWindow)
+        #self.calendarWidget.selectionChanged.connect(self.calendarDateChanged)
+
+      #  self.PopulateComboBox()
+       # self.BtnAddNew.clicked.connect(self.addNewDate)
+        self.BtnAddSpecialDate.clicked.connect(self.addNewSpecialDate)
+
+    # def addNewDate(self):
+    #     hourselected = str(self.timefield.text())
+    #     kid = str(self.ComboPekes.currentText())
+    #     dateSelected = self.calendarWidget.selectedDate().toPyDate()
+    #     # if len(hourselected) ==0 or len(kid)==0 or dateSelected ==0: 
+    #     #     self.lblFeedback.setText(f"Asegúrate de haber rellendao todos los campos")
+    #     #else:       
+    #     try:
+    #         db = sqlite3.connect("data.db")
+    #         cursor = db.cursor()
+    #         query = "INSERT INTO Task (Nombre, completed, date, hour) VALUES (?,?,?,?)"
+    #         row = (kid, "NO", dateSelected, hourselected)
+    #         cursor.execute(query, row)
+    #         db.commit()
+    #         self.lblFeedback.setText(f"Hemos añadido una cita con {kid} el {dateSelected} a las {hourselected}")
+    #         db.close()
+    #     except Exception as e:
+    #                # self.lblFeedback.setText(e)
+    #                print(e)
     
     def addNewSpecialDate(self):
         hourselected = str(self.timefield.text())
@@ -203,7 +271,6 @@ class CreateDateScreen(QDialog):
         main = MainWindow()
         widget.addWidget(main)
         widget.setCurrentIndex(widget.currentIndex()+1)
-## ---------------------------------------------------------------------------
 class CreateAgendaScreen(QDialog):
     def __init__(self):
         super(CreateAgendaScreen, self).__init__()
@@ -212,6 +279,13 @@ class CreateAgendaScreen(QDialog):
         self.calendarWidget.selectionChanged.connect(self.calendarDateChanged)
         self.calendarDateChanged()
         self.saveButton.clicked.connect(self.saveChanges)
+        self.SpecialAgenda.clicked.connect(self.gotospecialAgenda)
+    
+   
+    def gotospecialAgenda(self):
+        specialAgenda = CreateSpecialAgendaScreen()
+        widget.addWidget(specialAgenda)
+        widget.setCurrentIndex(widget.currentIndex()+1)
 
     def calendarDateChanged(self):
         self.TaskListWidget.clear()
@@ -229,6 +303,98 @@ class CreateAgendaScreen(QDialog):
             elif result[1] == "NO":
                 item.setCheckState(QtCore.Qt.Unchecked)
             self.TaskListWidget.addItem(item)
+        
+        # query2 = "SELECT * FROM Unusual_task WHERE completed = 'NO' AND date = ?"
+        # row2 = (dateSelected,)
+        # results = cursor.execute(query2, row2).fetchall()
+        # for result in results:
+        #     item = QListWidgetItem(str(result))
+        #     item.setFlags(item.flags() | QtCore.Qt.ItemIsUserCheckable)
+        #     if result[1] == "YES":
+        #         item.setCheckState(QtCore.Qt.Checked)
+        #     elif result[1] == "NO":
+        #         item.setCheckState(QtCore.Qt.Unchecked)
+        #     self.TaskListWidget.addItem(item)
+
+
+    def saveChanges(self):
+        db = sqlite3.connect("data.db")
+        cursor = db.cursor()
+        for i in range(self.TaskListWidget.count()):
+            item = self.TaskListWidget.item(i)
+            auxAtributos = item.text()  
+            nombrePreparado = auxAtributos.replace("(","").replace(")","").replace("'","")
+            tupla = nombrePreparado.split(",")
+            nombre = tupla[0]
+            fecha = tupla[2].strip()
+            hora = tupla[3].strip()
+            sesion = "{} --> {}".format(fecha,hora)
+            # print("Nombre = {} Bool = {} Fecha = {} Hora = {}".format(tupla[0],tupla[1],tupla[2],tupla[3]))
+            
+            if item.checkState() == QtCore.Qt.Checked:
+                query = "UPDATE Task SET completed = 'YES' WHERE Nombre = '{}' AND date = DATE('{}')".format(nombre,fecha)
+                #UnusualQuery = "UPDATE Unusual_Task SET completed = 'YES' WHERE Description = '{}' AND date = DATE('{}')".format(nombre,fecha)
+            else:
+                query = "UPDATE Task SET completed = 'NO' WHERE Nombre = '{}' AND date = DATE('{}')".format(nombre,fecha)
+                #UnusualQuery = "UPDATE Unusual_Task SET completed = 'NO' WHERE Description = '{}' AND date = DATE('{}')".format(nombre,fecha)
+            # cursor.execute(query)
+            # db.commit() 
+            try:
+                querySession = "INSERT INTO Schedules (nombre,sesion) VALUES ('{}','{}')".format(nombre,sesion)
+               # querySpecialSesion = "INSERT INTO Unusual_Schedules (description,sesion) VALUES ('{}','{}')".format(nombre,sesion)
+                cursor.execute(query)
+               # cursor.execute(UnusualQuery)
+              #  cursor.execute(querySpecialSesion)
+                cursor.execute(querySession)
+                db.commit()
+            except Exception as e:
+                print(e)
+        messageBox = QMessageBox()
+        messageBox.setText("Changes saved.")
+        messageBox.setStandardButtons(QMessageBox.Ok)
+        messageBox.exec()
+        db.close()
+
+
+
+    def gotoMainWindow(self):
+        main = MainWindow()
+        widget.addWidget(main)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+
+## -------------------------------------------------------------------------
+class CreateSpecialAgendaScreen(QDialog):
+    def __init__(self):
+        super(CreateSpecialAgendaScreen, self).__init__()
+        loadUi("Special_Agenda.ui",self)
+        self.BtnBack.clicked.connect(self.gotoMainWindow)
+        self.calendarWidget.selectionChanged.connect(self.calendarDateChanged)
+        self.calendarDateChanged()
+        self.saveButton.clicked.connect(self.saveChanges)
+        #self.SpecialAgenda.clicked.connect(self.gotospecialAgenda)
+    
+   
+    # def gotospecialAgenda(self):
+    #     specialAgenda = MainWindow()
+    #     widget.addWidget(specialAgenda)
+    #     widget.setCurrentIndex(widget.currentIndex()+1)
+
+    def calendarDateChanged(self):
+        self.TaskListWidget.clear()
+        dateSelected = self.calendarWidget.selectedDate().toPyDate()
+        db = sqlite3.connect("data.db")
+        cursor = db.cursor()
+        # query = "SELECT * FROM Task WHERE completed = 'NO' AND date = ?"
+        # row = (dateSelected,)
+        # results = cursor.execute(query, row).fetchall()
+        # for result in results:
+        #     item = QListWidgetItem(str(result))
+        #     item.setFlags(item.flags() | QtCore.Qt.ItemIsUserCheckable)
+        #     if result[1] == "YES":
+        #         item.setCheckState(QtCore.Qt.Checked)
+        #     elif result[1] == "NO":
+        #         item.setCheckState(QtCore.Qt.Unchecked)
+        #     self.TaskListWidget.addItem(item)
         
         query2 = "SELECT * FROM Unusual_task WHERE completed = 'NO' AND date = ?"
         row2 = (dateSelected,)
@@ -248,7 +414,6 @@ class CreateAgendaScreen(QDialog):
         cursor = db.cursor()
         for i in range(self.TaskListWidget.count()):
             item = self.TaskListWidget.item(i)
-            print(f"El item es{item}")
             auxAtributos = item.text()  
             nombrePreparado = auxAtributos.replace("(","").replace(")","").replace("'","")
             tupla = nombrePreparado.split(",")
@@ -257,34 +422,38 @@ class CreateAgendaScreen(QDialog):
             hora = tupla[3].strip()
             sesion = "{} --> {}".format(fecha,hora)
             # print("Nombre = {} Bool = {} Fecha = {} Hora = {}".format(tupla[0],tupla[1],tupla[2],tupla[3]))
-            print('Checking')
             
             if item.checkState() == QtCore.Qt.Checked:
-                query = "UPDATE Task SET completed = 'YES' WHERE Nombre = '{}' AND date = DATE('{}')".format(nombre,fecha)
+               # query = "UPDATE Task SET completed = 'YES' WHERE Nombre = '{}' AND date = DATE('{}')".format(nombre,fecha)
+                UnusualQuery = "UPDATE Unusual_Task SET completed = 'YES' WHERE Description = '{}' AND date = DATE('{}')".format(nombre,fecha)
             else:
-                query = "UPDATE Task SET completed = 'NO' WHERE Nombre = '{}' AND date = DATE('{}')".format(nombre,fecha)
+                #query = "UPDATE Task SET completed = 'NO' WHERE Nombre = '{}' AND date = DATE('{}')".format(nombre,fecha)
+                UnusualQuery = "UPDATE Unusual_Task SET completed = 'NO' WHERE Description = '{}' AND date = DATE('{}')".format(nombre,fecha)
             # cursor.execute(query)
             # db.commit() 
             try:
-                querySession = "INSERT INTO Schedules (nombre,sesion) VALUES ('{}','{}')".format(nombre,sesion)
-                cursor.execute(query)
-                db.commit() 
-                cursor.execute(querySession)
-                print("Query ejecutada")
+               # querySession = "INSERT INTO Schedules (nombre,sesion) VALUES ('{}','{}')".format(nombre,sesion)
+                querySpecialSesion = "INSERT INTO Unusual_Schedules (description,sesion) VALUES ('{}','{}')".format(nombre,sesion)
+                #cursor.execute(query)
+                cursor.execute(UnusualQuery)
+                cursor.execute(querySpecialSesion)
+               # cursor.execute(querySession)
                 db.commit()
-                #db.close()
             except Exception as e:
                 print(e)
         messageBox = QMessageBox()
         messageBox.setText("Changes saved.")
         messageBox.setStandardButtons(QMessageBox.Ok)
         messageBox.exec()
+        db.close()
+
 
 
     def gotoMainWindow(self):
         main = MainWindow()
         widget.addWidget(main)
         widget.setCurrentIndex(widget.currentIndex()+1)
+
 
 ## -------------------------------------------------------------------------
 class CreatekidScreen(QDialog):
@@ -334,7 +503,12 @@ class CreateInfoScreen(QDialog):
         self.BtnBack.clicked.connect(self.gotoMainWindow)
         self.PopulateComboBox()
         self.BtnShow.clicked.connect(self.showComputo)
-        self.BtnEdit.clicked.connect(self.editPeke)
+        self.BtnEdit.clicked.connect(self.gotoEditPeke)
+
+    def gotoEditPeke(self):
+        edittingpeke = CreateEdittingInfoScreen()
+        widget.addWidget(edittingpeke)
+        widget.setCurrentIndex(widget.currentIndex()+1)
 
     def PopulateComboBox(self):
         db = sqlite3.connect("data.db")
@@ -413,6 +587,87 @@ class CreateInfoScreen(QDialog):
         except Exception as e:
                 print(e)
 # -----------------------
+class CreateEdittingInfoScreen(QDialog):
+    def __init__(self):
+        super(CreateEdittingInfoScreen, self).__init__()
+        loadUi("Edit_info.ui",self)
+        self.BtnBack.clicked.connect(self.gotoMainWindow)
+        self.PopulateComboBox()
+        self.loadData()
+        self.ComboPekes.currentTextChanged.connect(self.loadData)
+        self.BtnEdit.clicked.connect(self.editPeke)
+
+
+    def PopulateComboBox(self):
+        db = sqlite3.connect("data.db")
+        cursor = db.cursor()
+        query = "SELECT * From Pekes;"
+        pekes = cursor.execute(query)
+        for i in pekes:
+            self.ComboPekes.addItem(str(i[0])) 
+    
+    def gotoMainWindow(self):
+        main = MainWindow()
+        widget.addWidget(main)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+
+    def loadData(self):
+        db = sqlite3.connect("data.db")
+        kid = str(self.ComboPekes.currentText())
+        cursor = db.cursor()
+        query2 = "SELECT * FROM Pekes WHERE nombre = '{}'".format(kid)
+        PekeInfo = cursor.execute(query2).fetchall()
+        for peke in PekeInfo:
+            print(peke)
+
+        self.nombrefield.setText(PekeInfo[0][0])
+        self.progenitor1field.setText(PekeInfo[0][1])
+        self.tfn1field.setText(PekeInfo[0][2])
+        self.progenitor2field.setText(PekeInfo[0][3])
+        self.tfn2field.setText(PekeInfo[0][4])
+       # self.birthdayfield.setDate(PekeInfo[0][5])
+        self.Public.setText(PekeInfo[0][5])
+        self.emailfield.setText(PekeInfo[0][6])
+
+    def editPeke(self):
+        db = sqlite3.connect("data.db")
+        kid = str(self.ComboPekes.currentText())
+        print('Trying to edit')
+        nombre = self.nombrefield.text()
+        progenitor1 = self.progenitor1field.text()
+        tfn1 = self.tfn1field.text()
+        progenirtor2 = self.progenitor2field.text()
+        tfn2 = self.tfn2field.text()
+        if self.Public.isChecked() == True:
+            origen = "Público"
+        else:
+            origen = "Privado"
+        email = self.emailfield.text()
+       # if len(email)==0 or len(nombre)==0 or len(progenitor1)==0 or len(tfn1)==0 or len(progenirtor2)==0 or len(tfn2)==0: 
+        try:
+            db = sqlite3.connect("data.db")
+            cursor = db.cursor()
+            query =  "UPDATE PEKES SET Nombre = '{}', Progenitor1 = '{}', Tfn1 = '{}', Progenitor2 = '{}', Tfn2 = '{}', Origen = '{}', Email = '{}' WHERE Nombre = '{}'".format(nombre,progenitor1,tfn1,progenirtor2,tfn2,origen,email,kid)
+            print(query)
+            # '''
+            #         INSERT INTO Pekes (Nombre, Progenitor1, Tfn1, Progenitor2, Tfn2, Origen, Email)
+            # '''
+
+
+            cursor.execute(query)
+            db.commit()
+            db.close()
+            messageBox = QMessageBox()
+            messageBox.setText("Changes saved.")
+            messageBox.setStandardButtons(QMessageBox.Ok)
+            messageBox.exec()
+        except Exception as e:
+                print(e)
+
+
+
+
+#-----------------------------------------------------------------------------------
 
 
 class CreatComputoScreen(QDialog):
