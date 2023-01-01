@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/vicdoblepe/Escritorio/Psico-project/pyqt5-full-app-tutorial-for-beginners-main/Agenda.ui'
+# Form implementation generated from reading ui file '/home/vicdoblepe/Escritorio/Psico-project/pyqt5-full-app-tutorial-for-beginners-main/QCalendarModifyDate.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -19,13 +19,17 @@ class Ui_Calendar(object):
         self.calendarWidget = QtWidgets.QCalendarWidget(Calendar)
         self.calendarWidget.setGeometry(QtCore.QRect(40, 180, 531, 351))
         self.calendarWidget.setStyleSheet("background:white;\n"
-"font: 13pt;\n"
-"color:black;")
+"font: 13pt;")
         self.calendarWidget.setObjectName("calendarWidget")
-        self.TaskListWidget = QtWidgets.QListWidget(Calendar)
-        self.TaskListWidget.setGeometry(QtCore.QRect(660, 180, 391, 351))
-        self.TaskListWidget.setStyleSheet("background:white")
-        self.TaskListWidget.setObjectName("TaskListWidget")
+        self.timefield = QtWidgets.QTimeEdit(Calendar)
+        self.timefield.setGeometry(QtCore.QRect(50, 565, 151, 41))
+        self.timefield.setStyleSheet("background:white;\n"
+"font: 13pt;\n"
+"")
+        self.timefield.setObjectName("timefield")
+        self.BtnAddNew = QtWidgets.QPushButton(Calendar)
+        self.BtnAddNew.setGeometry(QtCore.QRect(60, 640, 121, 41))
+        self.BtnAddNew.setObjectName("BtnAddNew")
         self.BtnBack = QtWidgets.QPushButton(Calendar)
         self.BtnBack.setGeometry(QtCore.QRect(990, 110, 141, 31))
         self.BtnBack.setObjectName("BtnBack")
@@ -39,23 +43,16 @@ class Ui_Calendar(object):
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         self.lblFeedback = QtWidgets.QLabel(Calendar)
-        self.lblFeedback.setGeometry(QtCore.QRect(40, 640, 621, 71))
+        self.lblFeedback.setGeometry(QtCore.QRect(430, 560, 741, 151))
         self.lblFeedback.setStyleSheet("Color: green;\n"
 "font:12pt;")
         self.lblFeedback.setText("")
         self.lblFeedback.setObjectName("lblFeedback")
-        self.saveButton = QtWidgets.QPushButton(Calendar)
-        self.saveButton.setGeometry(QtCore.QRect(710, 600, 211, 71))
-        self.saveButton.setObjectName("saveButton")
-        self.SpecialAgenda = QtWidgets.QPushButton(Calendar)
-        self.SpecialAgenda.setGeometry(QtCore.QRect(80, 620, 161, 41))
-        self.SpecialAgenda.setObjectName("SpecialAgenda")
-        self.label_2 = QtWidgets.QLabel(Calendar)
-        self.label_2.setGeometry(QtCore.QRect(670, 150, 371, 17))
-        self.label_2.setObjectName("label_2")
-        self.BtnchangeDate = QtWidgets.QPushButton(Calendar)
-        self.BtnchangeDate.setGeometry(QtCore.QRect(510, 610, 141, 51))
-        self.BtnchangeDate.setObjectName("BtnchangeDate")
+        self.listWidget = QtWidgets.QListWidget(Calendar)
+        self.listWidget.setGeometry(QtCore.QRect(640, 200, 411, 361))
+        self.listWidget.setStyleSheet("background: white;\n"
+"")
+        self.listWidget.setObjectName("listWidget")
 
         self.retranslateUi(Calendar)
         QtCore.QMetaObject.connectSlotsByName(Calendar)
@@ -63,9 +60,6 @@ class Ui_Calendar(object):
     def retranslateUi(self, Calendar):
         _translate = QtCore.QCoreApplication.translate
         Calendar.setWindowTitle(_translate("Calendar", "Form"))
+        self.BtnAddNew.setText(_translate("Calendar", "Modificar Cita"))
         self.BtnBack.setText(_translate("Calendar", "Back to Main"))
-        self.label.setText(_translate("Calendar", "Agenda"))
-        self.saveButton.setText(_translate("Calendar", "Save Changes"))
-        self.SpecialAgenda.setText(_translate("Calendar", "Special Agenda"))
-        self.label_2.setText(_translate("Calendar", "En esta agenda aparecen las citas normales "))
-        self.BtnchangeDate.setText(_translate("Calendar", "Moodificar cita"))
+        self.label.setText(_translate("Calendar", "Modificar Cita"))
