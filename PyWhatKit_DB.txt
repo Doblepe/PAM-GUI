@@ -1,0 +1,55 @@
+Date: 2/1/2023
+Time: 14:57
+Phone Number: f+34{tfn}
+Message: Hola es una prueba y te ha tocado ser conejillo
+--------------------
+Date: 2/1/2023
+Time: 14:57
+Phone Number: f+34{tfn}
+Message: Hola es una prueba y te ha tocado ser conejillo
+--------------------
+Date: 2/1/2023
+Time: 15:5
+Phone Number: f+34{tfn}
+Message: Hola es una prueba y te ha tocado ser conejillo
+--------------------
+Date: 2/1/2023
+Time: 15:22
+Phone Number: +34628465601
+Message: Hola es una prueba y te ha tocado ser conejillo
+--------------------
+Date: 2/1/2023
+Time: 15:29
+Phone Number: +34628465601
+Message: Hola es una prueba y te ha tocado ser conejillo
+--------------------
+Date: 2/1/2023
+Time: 15:38
+Phone Number: +34628465601
+Message: Hola es una prueba y te ha tocado ser conejillo
+--------------------
+Date: 2/1/2023
+Time: 15:49
+Phone Number: +34628465601
+Message: Hola Maria del Mar esto una prueba con variables dinámicas y te ha tocado ser conejillo
+--------------------
+Date: 2/1/2023
+Time: 16:34
+Phone Number: +34628465601
+Message: Hola Maria del Mar esto una prueba con variables dinámicas y te ha tocado ser conejillo
+--------------------
+Date: 2/1/2023
+Time: 17:9
+Phone Number: +34628465601
+Message: Hola Maria del Mar esto una prueba con variables dinámicas y te ha tocado ser conejillo
+--------------------
+Date: 2/1/2023
+Time: 19:11
+Phone Number: +34628465601
+Message: Hola Papá de Laia mañana Laia González tiene una cita a las 18:00. Si no hay ningún inconveniente, *No hace falta responder a este mensaje*
+--------------------
+Date: 2/1/2023
+Time: 19:31
+Phone Number: +34628465601
+Message: Hola Papá de Laia mañana Laia González tiene una cita a las 8:00. Si no hay ningún inconveniente, *No hace falta responder a este mensaje*
+--------------------

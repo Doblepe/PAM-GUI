@@ -406,7 +406,6 @@ class CreateAgendaScreen(QDialog):
         db.close()
 
 
-
     def gotoMainWindow(self):
         main = MainWindow()
         widget.addWidget(main)
