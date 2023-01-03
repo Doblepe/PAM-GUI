@@ -11,32 +11,32 @@ import pywhatkit
 # future_date_after_1_day = datetime.strftime(future_date_after_1_day, '%Y-%m-%d %H:%M')
 
 
-def sendWhatsapp(queryFindPeke, hour):
-    db = sqlite3.connect("data.db")
-    cursor = db.cursor()
-    pekeInfo = cursor.execute(queryFindPeke)
-    print(f"{hour} Hour")
-    hourDate = hour[0] + hour[1]
-    hourDate = int(hourDate)
-    print(f"{hourDate} HourDate")
-    minDate = hour[3] + hour[4]
-    minDate = int(minDate)
-    minDate = minDate + 1
-    print(f"{minDate} Hourmin")
-    for info in pekeInfo:
-        print (info)
-    try:
-        tfn = info[2]
-        progenitor1 =info[1]
-        pywhatkit.sendwhatmsg(
-        phone_no="+34{}".format(tfn), 
-        message="Hola {} esto una prueba  con variables dinámicas y te ha tocado ser conejillo".format(progenitor1),
-        time_hour=hourDate,
-        time_min=minDate)
-        print('Sending msg')
-    except Exception as e:
-        print(e)
-    buscar_citas_dia_siguiente()
+# def sendWhatsapp(queryFindPeke, hour):
+#     db = sqlite3.connect("data.db")
+#     cursor = db.cursor()
+#     pekeInfo = cursor.execute(queryFindPeke)
+#     print(f"{hour} Hour")
+#     hourDate = hour[0] + hour[1]
+#     hourDate = int(hourDate)
+#     print(f"{hourDate} HourDate")
+#     minDate = hour[3] + hour[4]
+#     minDate = int(minDate)
+#     minDate = minDate + 1
+#     print(f"{minDate} Hourmin")
+#     for info in pekeInfo:
+#         print (info)
+#     try:
+#         tfn = info[2]
+#         progenitor1 =info[1]
+#         pywhatkit.sendwhatmsg(
+#         phone_no="+34{}".format(tfn), 
+#         message="Hola {} esto una prueba  con variables dinámicas y te ha tocado ser conejillo".format(progenitor1),
+#         time_hour=hourDate,
+#         time_min=minDate)
+#         print('Sending msg')
+#     except Exception as e:
+#         print(e)
+#     buscar_citas_dia_siguiente()
 
 #print(f"Fecha actual es: {fecha_actual}")
 def buscar_citas_dia_siguiente():
@@ -52,42 +52,66 @@ def buscar_citas_dia_siguiente():
     pekeslist = []
     citasList = []
     for result in results:
-        print('Yeah, hay citas mañana')
         citasList.append(result)
         queryFindPeke = "SELECT * FROM Pekes WHERE Nombre = ('{}')".format(result[0])
         citados = cursor.execute(queryFindPeke)
         for peke in citados:
             pekeslist.append(peke)
     
-    print(f"{pekeslist} Son la pekelist")
-    print(f"{citasList} Son las citasList")
+    # print(f"{pekeslist} Son la pekelist")
+    # print(f"{citasList} Son las citasList")
 
-    print(f"{citasList[0][3]} Hora de la primera cita")
-    print(f"{pekeslist[0][1]} Nombre del primer  peke")
+    # print(f"{citasList[0][3]} Hora de la primera cita")
+    # print(f"{pekeslist[0][1]} Nombre del primer  peke")
     try:
-        tfn = pekeslist[0][2]
-        progenitor1 =pekeslist[0][1]
-        peke = pekeslist[0][0]
-        hora = citasList[0][3]
+        #Getting the right moment 
+        ini_time_for_now = datetime.now()
+        ini_time_for_now = datetime.strftime(ini_time_for_now, '%H:%M')
+        hourDate = ini_time_for_now[0] + ini_time_for_now[1]
+        hourDate = int(hourDate)
+        minDate = ini_time_for_now[3] + ini_time_for_now[4]
+        minDate = int(minDate)
+        minDate = minDate + 2
+   
 
-        pywhatkit.sendwhatmsg(
-        phone_no="+34{}".format(tfn), 
-        message="Hola {} mañana {} tiene una cita a las {}. Si no hay ningún inconveniente, *No hace falta responder a este mensaje*".format(progenitor1, peke, hora),
-        time_hour=19,
-        time_min=33)
-        print('Sending msg')
+        for i in range(1, len(pekeslist)):
+            tfn = pekeslist[i][2]
+            progenitor1 =pekeslist[i][1]
+            peke = pekeslist[i][0]
+            hora = citasList[i][3]
+            pywhatkit.sendwhatmsg(
+            phone_no="+34{}".format(tfn), 
+            message="Hola {} mañana {} tiene una cita a las {}. Si no hay ningún inconveniente, *No hace falta responder a este mensaje*".format(progenitor1, peke, hora),
+            time_hour=hourDate,
+            time_min=minDate)
+            print('Sending msg')
     except Exception as e:
         print(e)
 
-    #hourDate = hour[0] + hour[1]
-    #hourDate = int(hourDate)
-    # print(f"{hourDate} HourDate")
-    # minDate = hour[3] + hour[4]
-    # minDate = int(minDate)
-    # minDate = minDate + 1
-    # print(f"{minDate} Hourmin")
   
 buscar_citas_dia_siguiente()
+# import time 
+# import pywhatkit
+# import pyautogui
+# from pynput.keyboard import Key, Controller
+
+# keyboard = Controller()
+
+# def send_whatsapp_message(msg: str):
+#     try:
+#         pywhatkit.sendwhatmsg_instantly(
+#             phone_no="<phone-number>", 
+#             message=msg,
+#             tab_close=True
+#         )
+#         time.sleep(10)
+#         pyautogui.click()
+#         time.sleep(2)
+#         keyboard.press(Key.enter)
+#         keyboard.release(Key.enter)
+#         print("Message sent!")
+#     except Exception as e:
+#         print(str(e))
 
     # try:
     #     for i in range(1,len(pekeslist)):
@@ -108,7 +132,8 @@ buscar_citas_dia_siguiente()
 
    
 
- # --------------------------------------
+ # -------------------------------------- THIS CODE CONTAINS A BUCLE FOR SEARCHING DATES
+
  # def sendWhatsapp(queryFindPeke, hour):
 #     db = sqlite3.connect("data.db")
 #     cursor = db.cursor()

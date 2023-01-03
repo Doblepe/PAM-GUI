@@ -709,6 +709,7 @@ class CreatComputoScreen(QDialog):
         self.BtnShow.clicked.connect(self.showComputo)
         self.BtnShowScheudeles.clicked.connect(self.showSchedules)
         self.BtnShowAllToDo.clicked.connect(self.showAllToDo)
+        #self.ComboPekes.currentTextChanged.connect(self.loadData)
 
     def PopulateComboBox(self):
         db = sqlite3.connect("data.db")
@@ -717,6 +718,9 @@ class CreatComputoScreen(QDialog):
         pekes = cursor.execute(query)
         for i in pekes:
             self.ComboPekes.addItem(str(i[0])) 
+        calendarmonthlist  = ('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12')
+        for i in calendarmonthlist:
+            self.ComboMes.addItem(i)
     
     def gotoMainWindow(self):
         main = MainWindow()
@@ -735,11 +739,16 @@ class CreatComputoScreen(QDialog):
             item = QListWidgetItem(f"No hay registros para {kid}")
             self.ShowListWidget.addItem(item)
         else:
-            for result in results:
-              item = QListWidgetItem(str(result[2]))
-              self.ShowListWidget.addItem(item)
+            try: 
+                for result in results:
+                    month = result[2][5] + result[2][6]
+                    if month == str(self.ComboMes.currentText()):
+                        item = QListWidgetItem(str(result[2]))
+                        self.ShowListWidget.addItem(item)
+            except Exception as e:
+                    print(e)
         
-       # self.lblcount.setText(f"Has realizado {self.ShowListWidget.count()} horas a {kid}")
+        self.lblcount.setText(f"Has realizado {self.ShowListWidget.count()} horas a {kid}")
         
     def showSchedules (self):
         self.ShowListWidget.clear()
@@ -747,9 +756,16 @@ class CreatComputoScreen(QDialog):
         cursor = db.cursor()
         query = "SELECT * FROM Schedules"
         results = cursor.execute(query).fetchall()
-        for result in results:
-              item = QListWidgetItem(str(result[1])+"---->" + str(result[2]))
-              self.ShowListWidget.addItem(item)
+        try: 
+            for result in results:
+                month = result[2][5] + result[2][6] 
+                if month == str(self.ComboMes.currentText()):
+                    item = QListWidgetItem(str(result[1])+"---->" + str(result[2]))
+                    self.ShowListWidget.addItem(item)
+        except Exception as e:
+                    print(e)
+        
+
 
     def showAllToDo(self):
         self.ShowListWidget.clear()

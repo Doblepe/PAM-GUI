@@ -66,6 +66,18 @@ class Ui_Calendar(object):
         self.BtnShowScheudeles.setGeometry(QtCore.QRect(10, 320, 191, 25))
         self.BtnShowScheudeles.setStyleSheet("background: white;")
         self.BtnShowScheudeles.setObjectName("BtnShowScheudeles")
+        self.ComboMes = QtWidgets.QComboBox(Calendar)
+        self.ComboMes.setGeometry(QtCore.QRect(440, 130, 241, 41))
+        self.ComboMes.setStyleSheet("color: black; \n"
+"background: white;\n"
+"")
+        self.ComboMes.setEditable(True)
+        self.ComboMes.setObjectName("ComboMes")
+        self.label_3 = QtWidgets.QLabel(Calendar)
+        self.label_3.setGeometry(QtCore.QRect(370, 140, 62, 17))
+        self.label_3.setStyleSheet("background: white;")
+        self.label_3.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_3.setObjectName("label_3")
 
         self.retranslateUi(Calendar)
         QtCore.QMetaObject.connectSlotsByName(Calendar)
@@ -79,3 +91,4 @@ class Ui_Calendar(object):
         self.BtnShow.setText(_translate("Calendar", "Show"))
         self.BtnShowAllToDo.setText(_translate("Calendar", "Show citas por hacer"))
         self.BtnShowScheudeles.setText(_translate("Calendar", "Show citas realizadas"))
+        self.label_3.setText(_translate("Calendar", "Mes"))
