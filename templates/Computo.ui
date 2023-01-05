@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1213</width>
-    <height>759</height>
+    <width>1920</width>
+    <height>1080</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,14 +19,21 @@
   <widget class="QPushButton" name="BtnBack">
    <property name="geometry">
     <rect>
-     <x>990</x>
+     <x>1710</x>
      <y>110</y>
      <width>141</width>
-     <height>31</height>
+     <height>61</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:20px;
+background-color: rgb(214, 234, 248);
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+
+</string>
+   </property>
    <property name="text">
-    <string>Back to Main</string>
+    <string>Back </string>
    </property>
   </widget>
   <widget class="QLabel" name="label">
@@ -34,7 +41,7 @@
     <rect>
      <x>-10</x>
      <y>0</y>
-     <width>1241</width>
+     <width>1931</width>
      <height>91</height>
     </rect>
    </property>
@@ -55,7 +62,7 @@ background: #01BFFF;
   <widget class="QComboBox" name="ComboPekes">
    <property name="geometry">
     <rect>
-     <x>120</x>
+     <x>40</x>
      <y>130</y>
      <width>241</width>
      <height>41</height>
@@ -73,10 +80,10 @@ background: white;
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>150</y>
-     <width>62</width>
-     <height>17</height>
+     <x>40</x>
+     <y>100</y>
+     <width>81</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -92,10 +99,10 @@ background: white;
   <widget class="QListWidget" name="ShowListWidget">
    <property name="geometry">
     <rect>
-     <x>690</x>
-     <y>160</y>
-     <width>491</width>
-     <height>421</height>
+     <x>1120</x>
+     <y>230</y>
+     <width>731</width>
+     <height>651</height>
     </rect>
    </property>
    <property name="font">
@@ -111,8 +118,8 @@ background: white;
   <widget class="QPushButton" name="BtnShow">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>220</y>
+     <x>750</x>
+     <y>140</y>
      <width>83</width>
      <height>25</height>
     </rect>
@@ -121,14 +128,14 @@ background: white;
     <string notr="true">background: white;</string>
    </property>
    <property name="text">
-    <string>Show</string>
+    <string>Mostrar</string>
    </property>
   </widget>
   <widget class="QLabel" name="lblcount">
    <property name="geometry">
     <rect>
-     <x>680</x>
-     <y>600</y>
+     <x>1070</x>
+     <y>970</y>
      <width>471</width>
      <height>31</height>
     </rect>
@@ -144,8 +151,8 @@ background: white;
   <widget class="QPushButton" name="BtnShowAllToDo">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>270</y>
+     <x>870</x>
+     <y>140</y>
      <width>191</width>
      <height>25</height>
     </rect>
@@ -154,14 +161,14 @@ background: white;
     <string notr="true">background: white;</string>
    </property>
    <property name="text">
-    <string>Show citas por hacer</string>
+    <string>Mostrar citas por hacer</string>
    </property>
   </widget>
   <widget class="QPushButton" name="BtnShowScheudeles">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>320</y>
+     <x>870</x>
+     <y>190</y>
      <width>191</width>
      <height>25</height>
     </rect>
@@ -170,13 +177,13 @@ background: white;
     <string notr="true">background: white;</string>
    </property>
    <property name="text">
-    <string>Show citas realizadas</string>
+    <string>Mostrar citas realizadas</string>
    </property>
   </widget>
   <widget class="QComboBox" name="ComboMes">
    <property name="geometry">
     <rect>
-     <x>440</x>
+     <x>320</x>
      <y>130</y>
      <width>241</width>
      <height>41</height>
@@ -194,10 +201,10 @@ background: white;
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>370</x>
-     <y>140</y>
-     <width>62</width>
-     <height>17</height>
+     <x>320</x>
+     <y>100</y>
+     <width>81</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -208,6 +215,22 @@ background: white;
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="BtnShowUnusualScheudeles">
+   <property name="geometry">
+    <rect>
+     <x>870</x>
+     <y>240</y>
+     <width>191</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: white;</string>
+   </property>
+   <property name="text">
+    <string>Coordinacinoes realizadas</string>
    </property>
   </widget>
  </widget>

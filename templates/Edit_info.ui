@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1213</width>
-    <height>759</height>
+    <width>1920</width>
+    <height>1080</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,25 +16,12 @@
   <property name="styleSheet">
    <string notr="true">background-color:rgb(144, 158, 184);</string>
   </property>
-  <widget class="QPushButton" name="BtnBack">
-   <property name="geometry">
-    <rect>
-     <x>990</x>
-     <y>110</y>
-     <width>141</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Back to Main</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
      <x>-10</x>
      <y>0</y>
-     <width>1241</width>
+     <width>1931</width>
      <height>91</height>
     </rect>
    </property>
@@ -46,7 +33,7 @@ background: #01BFFF;
 </string>
    </property>
    <property name="text">
-    <string>Información</string>
+    <string>Editar Información</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -89,35 +76,6 @@ background: white;
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QListWidget" name="ShowListWidget">
-   <property name="geometry">
-    <rect>
-     <x>690</x>
-     <y>160</y>
-     <width>491</width>
-     <height>391</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background:white</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="BtnShow">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>190</y>
-     <width>83</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background: white;</string>
-   </property>
-   <property name="text">
-    <string>Show</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="lblcount">
    <property name="geometry">
     <rect>
@@ -138,8 +96,8 @@ background: white;
   <widget class="QLabel" name="lblNombre">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>240</y>
+     <x>430</x>
+     <y>180</y>
      <width>121</width>
      <height>20</height>
     </rect>
@@ -163,8 +121,8 @@ background: white;
   <widget class="QLabel" name="lblProge1">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>290</y>
+     <x>870</x>
+     <y>170</y>
      <width>81</width>
      <height>20</height>
     </rect>
@@ -179,8 +137,8 @@ background: white;
   <widget class="QLabel" name="lblTfn2">
    <property name="geometry">
     <rect>
-     <x>350</x>
-     <y>360</y>
+     <x>1260</x>
+     <y>230</y>
      <width>61</width>
      <height>21</height>
     </rect>
@@ -195,8 +153,8 @@ background: white;
   <widget class="QLabel" name="lblTfn1">
    <property name="geometry">
     <rect>
-     <x>350</x>
-     <y>290</y>
+     <x>890</x>
+     <y>230</y>
      <width>61</width>
      <height>21</height>
     </rect>
@@ -211,8 +169,8 @@ background: white;
   <widget class="QLabel" name="lblEmail">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>420</y>
+     <x>450</x>
+     <y>240</y>
      <width>81</width>
      <height>20</height>
     </rect>
@@ -227,8 +185,8 @@ background: white;
   <widget class="QLabel" name="lblProge2">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>360</y>
+     <x>1260</x>
+     <y>170</y>
      <width>81</width>
      <height>20</height>
     </rect>
@@ -243,8 +201,8 @@ background: white;
   <widget class="QLabel" name="lblOrigne">
    <property name="geometry">
     <rect>
-     <x>340</x>
-     <y>420</y>
+     <x>1250</x>
+     <y>300</y>
      <width>81</width>
      <height>20</height>
     </rect>
@@ -259,9 +217,9 @@ background: white;
   <widget class="QLineEdit" name="progenitor1field">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>280</y>
-     <width>211</width>
+     <x>970</x>
+     <y>170</y>
+     <width>271</width>
      <height>31</height>
     </rect>
    </property>
@@ -274,9 +232,9 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
   <widget class="QLineEdit" name="emailfield">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>410</y>
-     <width>201</width>
+     <x>570</x>
+     <y>230</y>
+     <width>271</width>
      <height>31</height>
     </rect>
    </property>
@@ -289,9 +247,9 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
   <widget class="QLineEdit" name="tfn1field">
    <property name="geometry">
     <rect>
-     <x>430</x>
-     <y>280</y>
-     <width>211</width>
+     <x>960</x>
+     <y>230</y>
+     <width>271</width>
      <height>31</height>
     </rect>
    </property>
@@ -304,9 +262,9 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
   <widget class="QLineEdit" name="progenitor2field">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>350</y>
-     <width>201</width>
+     <x>1360</x>
+     <y>170</y>
+     <width>271</width>
      <height>31</height>
     </rect>
    </property>
@@ -319,9 +277,9 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
   <widget class="QLineEdit" name="nombrefield">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>230</y>
-     <width>211</width>
+     <x>570</x>
+     <y>170</y>
+     <width>271</width>
      <height>31</height>
     </rect>
    </property>
@@ -337,9 +295,9 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
   <widget class="QLineEdit" name="tfn2field">
    <property name="geometry">
     <rect>
-     <x>420</x>
-     <y>360</y>
-     <width>211</width>
+     <x>1360</x>
+     <y>230</y>
+     <width>271</width>
      <height>31</height>
     </rect>
    </property>
@@ -352,9 +310,9 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
   <widget class="QCheckBox" name="Public">
    <property name="geometry">
     <rect>
-     <x>440</x>
-     <y>420</y>
-     <width>161</width>
+     <x>1360</x>
+     <y>300</y>
+     <width>271</width>
      <height>31</height>
     </rect>
    </property>
@@ -380,20 +338,42 @@ padding-left: 15px</string>
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QPushButton" name="BtnEdit">
+  <widget class="QPushButton" name="BtnBack">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>650</y>
-     <width>83</width>
-     <height>25</height>
+     <x>1700</x>
+     <y>110</y>
+     <width>141</width>
+     <height>61</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background: white;</string>
+    <string notr="true">border-radius:20px;
+background-color: rgb(214, 234, 248);
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+</string>
    </property>
    <property name="text">
-    <string>Edit Peke</string>
+    <string>Back</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="BtnEdit">
+   <property name="geometry">
+    <rect>
+     <x>1410</x>
+     <y>860</y>
+     <width>231</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:20px;
+background-color: rgb(214, 234, 248);
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+</string>
+   </property>
+   <property name="text">
+    <string>Guardar edición</string>
    </property>
   </widget>
  </widget>

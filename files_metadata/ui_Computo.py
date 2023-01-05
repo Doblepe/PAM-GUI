@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Calendar(object):
     def setupUi(self, Calendar):
         Calendar.setObjectName("Calendar")
-        Calendar.resize(1213, 759)
+        Calendar.resize(1492, 889)
         Calendar.setStyleSheet("background-color:rgb(144, 158, 184);")
         self.BtnBack = QtWidgets.QPushButton(Calendar)
         self.BtnBack.setGeometry(QtCore.QRect(990, 110, 141, 31))
@@ -78,6 +78,10 @@ class Ui_Calendar(object):
         self.label_3.setStyleSheet("background: white;")
         self.label_3.setAlignment(QtCore.Qt.AlignCenter)
         self.label_3.setObjectName("label_3")
+        self.BtnShowUnusualScheudeles = QtWidgets.QPushButton(Calendar)
+        self.BtnShowUnusualScheudeles.setGeometry(QtCore.QRect(10, 370, 191, 25))
+        self.BtnShowUnusualScheudeles.setStyleSheet("background: white;")
+        self.BtnShowUnusualScheudeles.setObjectName("BtnShowUnusualScheudeles")
 
         self.retranslateUi(Calendar)
         QtCore.QMetaObject.connectSlotsByName(Calendar)
@@ -88,7 +92,8 @@ class Ui_Calendar(object):
         self.BtnBack.setText(_translate("Calendar", "Back to Main"))
         self.label.setText(_translate("Calendar", "Computo de horas"))
         self.label_2.setText(_translate("Calendar", "Pekes"))
-        self.BtnShow.setText(_translate("Calendar", "Show"))
-        self.BtnShowAllToDo.setText(_translate("Calendar", "Show citas por hacer"))
-        self.BtnShowScheudeles.setText(_translate("Calendar", "Show citas realizadas"))
+        self.BtnShow.setText(_translate("Calendar", "Mostrar"))
+        self.BtnShowAllToDo.setText(_translate("Calendar", "Mostrar citas por hacer"))
+        self.BtnShowScheudeles.setText(_translate("Calendar", "Mostrar citas realizadas"))
         self.label_3.setText(_translate("Calendar", "Mes"))
+        self.BtnShowUnusualScheudeles.setText(_translate("Calendar", "Coordinacinoes realizadas"))

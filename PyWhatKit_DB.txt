@@ -83,3 +83,98 @@ Time: 8:30
 Phone Number: +34689711435
 Message: Hola Raúl de padre mañana Raul tiene una cita a las 22:00. Si no hay ningún inconveniente, *No hace falta responder a este mensaje*
 --------------------
+Date: 3/1/2023
+Time: 10:53
+Phone Number: +34689711435
+Message: Hola Raúl de padre mañana Raul tiene una cita a las 22:00. Si no hay ningún inconveniente, *No hace falta responder a este mensaje*
+--------------------
+Date: 3/1/2023
+Time: 10:56
+Phone Number: +34689711435
+Message: Hola Raúl de padre mañana Raul tiene una cita a las 22:00. Si no hay ningún inconveniente, *No hace falta responder a este mensaje*
+--------------------
+Date: 4/1/2023
+Time: 16:36
+Phone Number: +34628465601
+Message: Hola Marimar esto una prueba con variables dinámicas y te ha tocado ser conejillo
+--------------------
+Date: 4/1/2023
+Time: 16:57
+Phone Number: +34628465601
+Message: Hola Marimar mañana Victor tiene una cita a las 16:58. Si no hay ningún inconveniente, *No hace falta responder a este mensaje*
+--------------------
+Date: 4/1/2023
+Time: 17:1
+Phone Number: +34628465601
+Message: Hola Marimar mañana Victor tiene una cita a las 17:02. Si no hay ningún inconveniente, *No hace falta responder a este mensaje*
+--------------------
+Date: 4/1/2023
+Time: 17:15
+Phone Number: +34628465601
+Message: Hola Marimar mañana Victor tiene una cita a las 17:16. Si no hay ningún inconveniente, *No hace falta responder a este mensaje*
+--------------------
+Date: 4/1/2023
+Time: 17:21
+Phone Number: +34628465601
+Message: Hola Marimar mañana Victor tiene una cita a las 17:22. Si no hay ningún inconveniente, *No hace falta responder a este mensaje*
+--------------------
+Date: 4/1/2023
+Time: 17:27
+Phone Number: +34628465601
+Message: Hola Marimar mañana Victor tiene una cita a las 17:28. Si no hay ningún inconveniente, *No hace falta responder a este mensaje*
+--------------------
+Date: 4/1/2023
+Time: 17:34
+Phone Number: +34628465601
+Message: Hola Marimar mañana Victor tiene una cita a las 17:35. Si no hay ningún inconveniente, *No hace falta responder a este mensaje*
+--------------------
+Date: 4/1/2023
+Time: 17:38
+Phone Number: +34722155984
+Message: Hola David mañana Victor tiene una cita a las 17:35. Si no hay ningún inconveniente, *No hace falta responder a este mensaje*
+--------------------
+Date: 4/1/2023
+Time: 17:59
+Phone Number: +34628465601
+Message: Hola Papá de Laia mañana Laia González tiene una cita a las 18:00. Si no hay ningún inconveniente, *No hace falta responder a este mensaje*
+--------------------
+Date: 4/1/2023
+Time: 18:14
+Phone Number: +34628465601
+Message: Hola Marimar mañana Victor tiene una cita a las 18:15. Si no hay ningún inconveniente, *No hace falta responder a este mensaje*
+--------------------
+Date: 4/1/2023
+Time: 18:18
+Phone Number: +34722155984
+Message: Hola David mañana Victor tiene una cita a las 18:15. Si no hay ningún inconveniente, *No hace falta responder a este mensaje*
+--------------------
+Date: 4/1/2023
+Time: 18:24
+Phone Number: +34628465601
+Message: Hola Marimar mañana Victor tiene una cita a las 18:24. Si no hay ningún inconveniente, *No hace falta responder a este mensaje*
+--------------------
+Date: 4/1/2023
+Time: 18:33
+Phone Number: +34628465601
+Message: Hola Marimar mañana Victor tiene una cita a las 18:34. Si no hay ningún inconveniente, *No hace falta responder a este mensaje*
+--------------------
+Date: 4/1/2023
+Time: 18:45
+Phone Number: +34628465601
+Message: Hola Marimar mañana Victor tiene una cita a las 18:45. Si no hay ningún inconveniente, *No hace falta responder a este mensaje*
+--------------------
+Date: 4/1/2023
+Time: 18:48
+Phone Number: +34722155984
+Message: Hola David mañana Victor tiene una cita a las 18:45. Si no hay ningún inconveniente, *No hace falta responder a este mensaje*
+--------------------
+Date: 4/1/2023
+Time: 19:9
+Phone Number: +34628465601
+Message: Hola Marimar mañana Victor tiene una cita a las 19:10. Si no hay ningún inconveniente, *No hace falta responder a este mensaje*
+--------------------
+Date: 4/1/2023
+Time: 19:26
+Phone Number: +34628465601
+Message: Hola Marimar mañana Victor tiene una cita a las 19:27. Si no hay ningún inconveniente, *No hace falta responder a este mensaje*
+--------------------

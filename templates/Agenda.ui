@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1213</width>
-    <height>759</height>
+    <width>1920</width>
+    <height>1080</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,41 +21,46 @@
     <rect>
      <x>40</x>
      <y>180</y>
-     <width>531</width>
-     <height>351</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background:white;
-font: 13pt;</string>
-   </property>
-  </widget>
-  <widget class="QTimeEdit" name="timefield">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>565</y>
-     <width>151</width>
-     <height>41</height>
+     <width>641</width>
+     <height>431</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">background:white;
 font: 13pt;
-</string>
+color:black;</string>
+   </property>
+  </widget>
+  <widget class="QListWidget" name="TaskListWidget">
+   <property name="geometry">
+    <rect>
+     <x>1090</x>
+     <y>220</y>
+     <width>731</width>
+     <height>591</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background:white</string>
    </property>
   </widget>
   <widget class="QPushButton" name="BtnBack">
    <property name="geometry">
     <rect>
-     <x>990</x>
+     <x>1650</x>
      <y>110</y>
-     <width>141</width>
-     <height>31</height>
+     <width>231</width>
+     <height>41</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:20px;
+background-color: rgb(214, 234, 248);
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+</string>
+   </property>
    <property name="text">
-    <string>Back to Main</string>
+    <string>Back</string>
    </property>
   </widget>
   <widget class="QLabel" name="label">
@@ -63,7 +68,7 @@ font: 13pt;
     <rect>
      <x>-10</x>
      <y>0</y>
-     <width>1241</width>
+     <width>1941</width>
      <height>91</height>
     </rect>
    </property>
@@ -75,7 +80,7 @@ background: #01BFFF;
 </string>
    </property>
    <property name="text">
-    <string>Preprarar cita</string>
+    <string>Agenda</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -84,10 +89,10 @@ background: #01BFFF;
   <widget class="QLabel" name="lblFeedback">
    <property name="geometry">
     <rect>
-     <x>430</x>
-     <y>560</y>
-     <width>741</width>
-     <height>151</height>
+     <x>40</x>
+     <y>640</y>
+     <width>621</width>
+     <height>71</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -98,53 +103,74 @@ font:12pt;</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="BtnAddSpecialDate">
+  <widget class="QPushButton" name="saveButton">
    <property name="geometry">
     <rect>
-     <x>640</x>
-     <y>580</y>
-     <width>151</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Añadior cita especial</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="SpecialDateDesc">
-   <property name="geometry">
-    <rect>
-     <x>650</x>
-     <y>230</y>
-     <width>521</width>
-     <height>291</height>
+     <x>1580</x>
+     <y>890</y>
+     <width>231</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background: white;</string>
+    <string notr="true">border-radius:20px;
+background-color: rgb(214, 234, 248);
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+</string>
    </property>
-   <property name="alignment">
-    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+   <property name="text">
+    <string>Save Changes</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="SpecialAgenda">
+   <property name="geometry">
+    <rect>
+     <x>1390</x>
+     <y>110</y>
+     <width>231</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:20px;
+background-color: rgb(214, 234, 248);
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+</string>
+   </property>
+   <property name="text">
+    <string>Coordinaciones</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>650</x>
-     <y>190</y>
-     <width>211</width>
-     <height>31</height>
+     <x>1090</x>
+     <y>180</y>
+     <width>371</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>En esta agenda aparecen las citas normales </string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="BtnchangeDate">
+   <property name="geometry">
+    <rect>
+     <x>1230</x>
+     <y>890</y>
+     <width>231</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background: white;
+    <string notr="true">border-radius:20px;
+background-color: rgb(214, 234, 248);
+font: 14pt &quot;MS Shell Dlg 2&quot;;
 </string>
    </property>
    <property name="text">
-    <string>Describe brevemente la cita</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
+    <string>Moodificar cita</string>
    </property>
   </widget>
  </widget>

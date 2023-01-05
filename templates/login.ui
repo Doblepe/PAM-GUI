@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1769</width>
-    <height>1011</height>
+    <width>1920</width>
+    <height>1080</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,10 +16,10 @@
   <widget class="QWidget" name="bgwidget" native="true">
    <property name="geometry">
     <rect>
-     <x>-60</x>
-     <y>0</y>
-     <width>1831</width>
-     <height>1011</height>
+     <x>-30</x>
+     <y>-10</y>
+     <width>2011</width>
+     <height>1101</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -28,24 +28,24 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>100</y>
-      <width>251</width>
-      <height>61</height>
+      <x>240</x>
+      <y>70</y>
+      <width>391</width>
+      <height>71</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">font: 36pt &quot;MS Shell Dlg 2&quot;; color:rgb(255, 255, 255)</string>
     </property>
     <property name="text">
-     <string>Welcome</string>
+     <string>Magic Agenda</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>190</y>
+      <x>230</x>
+      <y>150</y>
       <width>391</width>
       <height>41</height>
      </rect>
@@ -54,109 +54,115 @@
      <string notr="true">font: 16pt &quot;MS Shell Dlg 2&quot;;color:rgb(255, 255, 255)</string>
     </property>
     <property name="text">
-     <string>Choose your option</string>
+     <string>Sign in to your existing account</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="citarScreen">
+   <widget class="QPushButton" name="login">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>350</y>
+      <x>220</x>
+      <y>420</y>
+      <width>221</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius:20px;
+background-color: rgb(214, 234, 248);
+font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Log in</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="emailfield">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>250</y>
       <width>341</width>
       <height>51</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-radius:20px;
-background-color: rgb(170, 255, 255);
-font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
-    </property>
-    <property name="text">
-     <string>Citar</string>
+     <string notr="true">background-color:white;
+border-radius: 20px;
+font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="createKidScreen">
+   <widget class="QLineEdit" name="passwordfield">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>350</y>
+      <x>220</x>
+      <y>340</y>
       <width>341</width>
       <height>51</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-radius:20px;
-background-color: rgb(170, 255, 255);
-font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
-    </property>
-    <property name="text">
-     <string>Create a Kid</string>
+     <string notr="true">background-color:white;
+border-radius: 20px;
+font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="agendaScreen">
+   <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>860</x>
-      <y>350</y>
-      <width>331</width>
-      <height>51</height>
+      <x>230</x>
+      <y>230</y>
+      <width>81</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>MS Shell Dlg 2</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Username</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>320</y>
+      <width>81</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-radius:20px;
-background-color: rgb(170, 255, 255);
-font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+     <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
     </property>
     <property name="text">
-     <string>Agenda</string>
+     <string>Password</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="computoScreen">
+   <widget class="QLabel" name="error">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>460</y>
-      <width>361</width>
-      <height>51</height>
+      <x>510</x>
+      <y>430</y>
+      <width>341</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-radius:20px;
-background-color: rgb(170, 255, 255);
-font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+     <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;; color:red;</string>
     </property>
     <property name="text">
-     <string>Cómputo</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="infoScreen">
-    <property name="geometry">
-     <rect>
-      <x>490</x>
-      <y>460</y>
-      <width>361</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border-radius:20px;
-background-color: rgb(170, 255, 255);
-font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
-    </property>
-    <property name="text">
-     <string>Información</string>
+     <string/>
     </property>
    </widget>
   </widget>
-  <action name="actionHome">
-   <property name="icon">
-    <iconset>
-     <normaloff>fugue-icons-3.5.6/icons/home.png</normaloff>fugue-icons-3.5.6/icons/home.png</iconset>
-   </property>
-   <property name="text">
-    <string>Home</string>
-   </property>
-  </action>
  </widget>
  <resources/>
  <connections/>
