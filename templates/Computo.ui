@@ -233,6 +233,24 @@ background: white;
     <string>Coordinacinoes realizadas</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="Btnexportxlsx">
+   <property name="geometry">
+    <rect>
+     <x>1470</x>
+     <y>110</y>
+     <width>161</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:20px;
+background-color: rgb(165, 238, 185);
+font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Exportar XLSX</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

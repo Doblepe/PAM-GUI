@@ -4,13 +4,10 @@ from PyQt5 import QtWidgets
 from PyQt5 import QtCore
 from PyQt5.QtWidgets import QDialog, QApplication, QWidget,QListWidgetItem,  QMessageBox
 from PyQt5.QtGui import QPixmap
+import xlsxwriter
 
 import sqlite3
 # from time import deltatime
-
-
-
-
 
 class LoginScreen(QDialog):
     def __init__(self):
@@ -165,20 +162,23 @@ class CreateDateScreen(QDialog):
         dateSelected = self.calendarWidget.selectedDate().toPyDate()
         # if len(hourselected) ==0 or len(kid)==0 or dateSelected ==0: 
         #     self.lblFeedback.setText(f"Asegúrate de haber rellendao todos los campos")
-        #else:       
+        #else:
+             
         try:
             db = sqlite3.connect("data.db")
             cursor = db.cursor()
             query = "INSERT INTO Task (Nombre, completed, date, hour) VALUES (?,?,?,?)"
             row = (kid, "NO", dateSelected, hourselected)
             cursor.execute(query, row)
-            db.commit()
-            self.lblFeedback.setText(f"Hemos añadido una cita con {kid} el {dateSelected} a las {hourselected}")
-            db.close()
+            ret = QMessageBox.question(self, 'MessageBox', f"¿Estás segura de agendar una cita con {kid} el {dateSelected} a las {hourselected}", QMessageBox.Yes | QMessageBox.No )
+            if ret == QMessageBox.Yes:  
+                    db.commit()
+                    self.lblFeedback.setText(f"Hemos añadido una cita con {kid} el {dateSelected} a las {hourselected}")
+                    db.close()
         except Exception as e:
-                   # self.lblFeedback.setText(e)
-                   print(e)
-       
+                    # self.lblFeedback.setText(e)
+                print(e)
+        
      
     def PopulateComboBox(self):
         db = sqlite3.connect("data.db")
@@ -314,9 +314,9 @@ class CreateAgendaScreen(QDialog):
         if item.checkState() == QtCore.Qt.Checked:
             query = "Select * FROM Task WHERE Nombre = '{}' AND date = DATE('{}')".format(nombre,fecha)
         #print(query)
-        modifyDate = CreateModifyDateScreen(query)
-        widget.addWidget(modifyDate)
-        widget.setCurrentIndex(widget.currentIndex()+1)
+            modifyDate = CreateModifyDateScreen(query)
+            widget.addWidget(modifyDate)
+            widget.setCurrentIndex(widget.currentIndex()+1)
 
     def changeDate(self):
         db = sqlite3.connect("data.db")
@@ -401,8 +401,9 @@ class CreateAgendaScreen(QDialog):
                     db.commit()
                 except Exception as e:
                     print(e)
-    
+        self.TaskListWidget.clear()
         db.close()
+        
 
 
     def gotoMainWindow(self):
@@ -703,7 +704,91 @@ class CreatComputoScreen(QDialog):
         self.BtnShowAllToDo.clicked.connect(self.showAllToDo)
         #self.ComboPekes.currentTextChanged.connect(self.loadData)
         self.BtnShowUnusualScheudeles.clicked.connect(self.showUnusualSchedules)
+        self.Btnexportxlsx.clicked.connect(self.exportXLSX)
 
+    def exportXLSX(self):
+        db = sqlite3.connect("data.db")
+        cursor = db.cursor()
+        query = "SELECT * From Pekes;"
+        pekes = cursor.execute(query)
+        # Create a workbook and add a worksheet.
+        workbook = xlsxwriter.Workbook('Horas.xlsx')
+        worksheet = workbook.add_worksheet(self.ComboMes.currentText())
+       
+        #Setting the schema
+        header_cell = workbook.add_format({'bold': True, 'font_color': 'white', 'bg_color': 'rgb(214, 234, 248)'})
+        worksheet.write(0, 0, 'Atención temprana', header_cell)
+        worksheet.write(0, 1, 'Semana 1', header_cell)
+        worksheet.write(0, 2, 'Semana 2', header_cell)
+        worksheet.write(0, 3, 'Semana 3', header_cell)
+        worksheet.write(0, 4, 'Semana 5', header_cell)
+        worksheet.write(0, 5, 'Prescripción', header_cell)
+        worksheet.write(0, 6, 'Realizadas', header_cell)
+        worksheet.write(0, 7, 'No Realizadas', header_cell)
+        worksheet.write(0, 8, 'Recuperadas', header_cell)
+        # Privados
+        worksheet.write(40, 0, 'PRIVADOS', header_cell)
+        worksheet.write(40, 1, 'Semana 1', header_cell)
+        worksheet.write(40, 2, 'Semana 2', header_cell)
+        worksheet.write(40, 3, 'Semana 3', header_cell)
+        worksheet.write(40, 4, 'Semana 5', header_cell)
+        worksheet.write(40, 5, 'Prescripción - BONO', header_cell)
+        worksheet.write(40, 6, 'Realizadas', header_cell)
+        worksheet.write(40, 7, 'No Realizadas', header_cell)
+        worksheet.write(40, 8, 'Recuperadas', header_cell)
+
+   # Start from the first cell. Rows and columns are zero indexed.
+        row = 1
+        col = 0
+        # Iterate over the data and write it out row by row.
+        Atencion_temprana_list = []
+        Privados_list = []
+        for item in (pekes):
+            if item[5] == 'Público':
+                Atencion_temprana_list.append(item)
+                worksheet.write(row, col, item[0])
+                row += 1
+            else:
+                Privados_list.append(item)
+       #Seteo para que empiece con los privados 
+        row = 41
+        for item in Privados_list:
+            worksheet.write(row, col, item[0])
+            row += 1
+        
+        query_all_schedules = "SELECT * FROM Schedules"
+        results = cursor.execute(query_all_schedules).fetchall()
+        sesiones_del_mes = []
+        try: 
+            row = 1
+            col = 1
+            for result in results:
+                i = 0
+                #Esta línea coge el mes de la cita y la compara con el mes seleccionado en el CB
+                month = result[2][5] + result[2][6] 
+                if month == str(self.ComboMes.currentText()):
+                    sesiones_del_mes.append(result)
+                    #Todas las sesinoes realizadas durante el mes
+                else:
+                    print('La cita es de otro mes')    
+            print(f"{sesiones_del_mes} Sesiones del mes")
+            print(f"{Atencion_temprana_list} Atención temprana")
+
+            # for sesion in sesiones_del_mes:
+            #     i+=1
+            #     if Atencion_temprana_list[i][0] == sesiones_del_mes[i][1]:
+            #         worksheet.write(row, col, sesiones_del_mes[i][2])
+            #         col +=1
+                
+            #print(i)
+               
+        except Exception as e:
+                    print(e)
+
+ 
+        #worksheet.write(row, col + 1, cost)
+        workbook.close()
+        print('editting xmlsx')
     def PopulateComboBox(self):
         db = sqlite3.connect("data.db")
         cursor = db.cursor()
