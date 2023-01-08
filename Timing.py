@@ -6,6 +6,8 @@ import pywhatkit
  # -------------------------------------- THIS CODE CONTAINS A BUCLE FOR SEARCHING DATES
 
 def sendWhatsapp_proge1(queryFindPeke, hour):
+    global open
+    open = False
     db = sqlite3.connect("data.db")
     cursor = db.cursor()
     pekeInfo = cursor.execute(queryFindPeke)
@@ -15,7 +17,7 @@ def sendWhatsapp_proge1(queryFindPeke, hour):
     print(f"{hourDate} HourDate")
     minDate = hour[3] + hour[4]
     minDate = int(minDate)
-    minDate = minDate + 3
+    minDate = minDate + 4
     print(f"{minDate} Hourmin")
     for info in pekeInfo:
         print (info)
@@ -42,7 +44,7 @@ def sendWhatsapp_proge2(queryFindPeke, hour):
     print(f"{hourDate} HourDate")
     minDate = hour[3] + hour[4]
     minDate = int(minDate)
-    minDate = minDate + 4
+    minDate = minDate + 3
     print(f"{minDate} Hourmin")
     for info in pekeInfo:
         print (info)
@@ -54,11 +56,12 @@ def sendWhatsapp_proge2(queryFindPeke, hour):
         phone_no="+34{}".format(tfn), 
         message="Hola {} mañana {} tiene una cita a las {}. Si no hay ningún inconveniente, *No hace falta responder a este mensaje*".format(progenitor2, peke, hour),
         time_hour=hourDate,
-        time_min=minDate, wait_time= 30, tab_close=True, close_time= 50)
+        time_min=minDate, wait_time= 30, tab_close=True, close_time= 10)
         print('Sending msg')
     except Exception as e:
         print(e)
     buscar_citas_dia_siguiente()
+
 
 #print(f"Fecha actual es: {fecha_actual}")
 def buscar_citas_dia_siguiente():
@@ -67,6 +70,7 @@ def buscar_citas_dia_siguiente():
     query = "SELECT * FROM Task WHERE completed = 'NO'"
     results = cursor.execute(query).fetchall()
     Lista_de_citas = []
+    global open 
     open = True
     for result in results:
         print(result)
@@ -116,8 +120,8 @@ def buscar_citas_dia_siguiente():
                # queryFindDate = "SELECT * FROM Task WHERE Nombre = ('{}') AND hour = ('{}') AND date = ('{}') ".format(peke, hour,date)
                 queryFindPeke = "SELECT * FROM Pekes WHERE Nombre = ('{}')".format(peke)
                 sendWhatsapp_proge1(queryFindPeke, hour)
-                sendWhatsapp_proge2(queryFindPeke, hour)
-                
+               # sendWhatsapp_proge2(queryFindPeke, hour)
+            
 
 buscar_citas_dia_siguiente() 
 

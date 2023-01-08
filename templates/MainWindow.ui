@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1920</width>
+    <width>1914</width>
     <height>1080</height>
    </rect>
   </property>
@@ -16,7 +16,7 @@
   <widget class="QWidget" name="bgwidget" native="true">
    <property name="geometry">
     <rect>
-     <x>-10</x>
+     <x>-30</x>
      <y>0</y>
      <width>2001</width>
      <height>1091</height>
@@ -30,7 +30,7 @@
      <rect>
       <x>120</x>
       <y>100</y>
-      <width>251</width>
+      <width>291</width>
       <height>61</height>
      </rect>
     </property>
@@ -38,7 +38,7 @@
      <string notr="true">font: 36pt &quot;MS Shell Dlg 2&quot;; color:rgb(255, 255, 255)</string>
     </property>
     <property name="text">
-     <string>Welcome</string>
+     <string>Bienvenida</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
@@ -54,7 +54,7 @@
      <string notr="true">font: 16pt &quot;MS Shell Dlg 2&quot;;color:rgb(255, 255, 255)</string>
     </property>
     <property name="text">
-     <string>Choose your option</string>
+     <string>¿Adónde quieres ir?</string>
     </property>
    </widget>
    <widget class="QPushButton" name="citarScreen">
@@ -90,13 +90,13 @@ background-color: rgb(170, 255, 255);
 font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
     </property>
     <property name="text">
-     <string>Create a Kid</string>
+     <string>Crear un niño</string>
     </property>
    </widget>
    <widget class="QPushButton" name="agendaScreen">
     <property name="geometry">
      <rect>
-      <x>860</x>
+      <x>900</x>
       <y>350</y>
       <width>331</width>
       <height>51</height>
@@ -146,6 +146,60 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
     <property name="text">
      <string>Información</string>
     </property>
+   </widget>
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>890</x>
+      <y>420</y>
+      <width>371</width>
+      <height>131</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: white;
+border-radius: 30px;</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QCheckBox" name="activate_whats">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>30</y>
+       <width>191</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Avisar próximas citas</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="BtnIschecked">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>60</y>
+       <width>341</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius:20px;
+background-color: rgb(94, 248, 93 );
+font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Activar / Desactivar</string>
+     </property>
+    </widget>
    </widget>
   </widget>
   <action name="actionHome">
