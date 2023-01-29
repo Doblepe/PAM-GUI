@@ -231,7 +231,7 @@ background: white;
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>540</y>
+     <y>550</y>
      <width>81</width>
      <height>20</height>
     </rect>
@@ -336,37 +336,6 @@ border-radius: 20px;
 font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
    </property>
   </widget>
-  <widget class="QCheckBox" name="Public">
-   <property name="geometry">
-    <rect>
-     <x>100</x>
-     <y>540</y>
-     <width>271</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>MS Shell Dlg 2</family>
-     <pointsize>12</pointsize>
-     <weight>50</weight>
-     <italic>false</italic>
-     <bold>false</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color:white;
-border-radius: 20px;
-font: 12pt &quot;MS Shell Dlg 2&quot;;
-padding-left: 15px</string>
-   </property>
-   <property name="text">
-    <string>Público</string>
-   </property>
-   <property name="checked">
-    <bool>true</bool>
-   </property>
-  </widget>
   <widget class="QPushButton" name="BtnEdit">
    <property name="geometry">
     <rect>
@@ -420,6 +389,24 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
    </property>
    <property name="text">
     <string>Dar alta</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboPublic">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>540</y>
+     <width>241</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: black; 
+background: white;
+</string>
+   </property>
+   <property name="editable">
+    <bool>true</bool>
    </property>
   </widget>
  </widget>

@@ -24,15 +24,16 @@ class LoginScreen(QDialog):
         password = self.passwordfield.text()
         if len(user)==0 or len(password)==0:
             self.error.setText("Please input all fields.")
+            self.gotoMainWindow() #Acomodo esta parte de la función para no tener que logearme todas las veces
 
         else:
             conn = sqlite3.connect("data.db")
             cur = conn.cursor()
             query = "SELECT password FROM login_info WHERE username = '{}'".format(user)
             result = cur.execute(query).fetchone()[0]
-            # if result == password:
-            #     print("Successfully logged in.")
-            #     self.error.setText("")
+            if result == password:
+                 print("Successfully logged in.")
+                 self.error.setText("")
             self.gotoMainWindow()
             # else:
             #     self.error.setText("Invalid username or password")
@@ -71,6 +72,19 @@ class LoginScreen(QDialog):
             db.commit()
         except Exception as e:
             print(e)
+        try: 
+            cursor.execute(
+                '''
+                CREATE TABLE IF NOT EXISTS "Schedules" (
+	            "ID"	INTEGER NOT NULL UNIQUE,
+	            "nombre"	TEXT NOT NULL,
+	            "sesion"	TEXT NOT NULL,
+	            PRIMARY KEY("ID" AUTOINCREMENT)
+                )'''
+            )
+            db.commit()
+        except Exception as e:
+            print(e)
         try:
             cursor.execute(
                 '''
@@ -94,7 +108,7 @@ class LoginScreen(QDialog):
                 Tfn2 VARCHAR(100),
                 Origen VARCHAR(100),
                 Email VARCHAR(100),
-                Cumpleaños DATE
+                h_asignadas VARCHAR(100)
                 ); '''
             )
             db.commit()
@@ -107,6 +121,8 @@ class LoginScreen(QDialog):
 	            "password"	VARCHAR(100),
 	            PRIMARY KEY("username"));''')
             db.commit()
+        
+        
             db.close()
         except Exception as e:
             print(e)
@@ -341,7 +357,7 @@ class CreateAgendaScreen(QDialog):
             
         if item.checkState() == QtCore.Qt.Checked:
             query = "Select * FROM Task WHERE Nombre = '{}' AND date = DATE('{}')".format(nombre,fecha)
-        #print(query)
+            #print(query)
             modifyDate = CreateModifyDateScreen(query)
             widget.addWidget(modifyDate)
             widget.setCurrentIndex(widget.currentIndex()+1)
@@ -464,7 +480,6 @@ class CreateSpecialAgendaScreen(QDialog):
                 item.setCheckState(QtCore.Qt.Unchecked)
             self.TaskListWidget.addItem(item)
 
-
     def saveChanges(self):
         db = sqlite3.connect("data.db")
         cursor = db.cursor()
@@ -495,8 +510,6 @@ class CreateSpecialAgendaScreen(QDialog):
                     print(e)
         db.close()
 
-
-
     def gotoMainWindow(self):
         main = MainWindow()
         widget.addWidget(main)
@@ -510,6 +523,8 @@ class CreatekidScreen(QDialog):
         loadUi("templates/Createkid.ui",self)
         self.savekid.clicked.connect(self.savekidfunction)
         self.back.clicked.connect(self.gotoMainWindow)
+        self.comboPublic.addItem("Público")
+        self.comboPublic.addItem("Privado")
     def savekidfunction(self):
         ret = QMessageBox.question(self, 'MessageBox', "¿Estás segura de guardar estos datos?", QMessageBox.Yes | QMessageBox.No )
         if ret == QMessageBox.Yes:
@@ -518,23 +533,20 @@ class CreatekidScreen(QDialog):
             tfn1 = self.tfn1field.text()
             progenirtor2 = self.progenitor2field.text()
             tfn2 = self.tfn2field.text()
-            birthday = self.birthdayfield.text()
-            if self.Public.isChecked() == True:
-                origen = "Público"
-            else:
-                origen = "Privado"
+            origen = self.comboPublic.currentText()
             email = self.emailfield.text()
+            h_asignadas = self.asignacionfield.text()
 
-            if len(email)==0 or len(nombre)==0 or len(progenitor1)==0 or len(tfn1)==0 or len(progenirtor2)==0 or len(tfn2)==0 or len(birthday)==0: 
+            if len(email)==0 or len(nombre)==0 or len(progenitor1)==0 or len(tfn1)==0 or len(progenirtor2)==0 or len(tfn2)==0 or len(h_asignadas)==0: 
                 self.error.setText("Por favor, rellena todos los campos")
 
             try:
                 db = sqlite3.connect("data.db")
                 cursor = db.cursor()
                 query = '''
-                        INSERT INTO Pekes (Nombre, Progenitor1, Tfn1, Progenitor2, Tfn2, Origen, Email, Cumpleaños) VALUES (?,?,?,?,?,?,?,?)
+                        INSERT INTO Pekes (Nombre, Progenitor1, Tfn1, Progenitor2, Tfn2, Origen, Email, h_asignadas) VALUES (?,?,?,?,?,?,?,?)
                 '''
-                row = (nombre,progenitor1,tfn1,progenirtor2,tfn2,origen,email,birthday)
+                row = (nombre,progenitor1,tfn1,progenirtor2,tfn2,origen,email,h_asignadas)
                 cursor.execute(query, row)
                 db.commit()
                 db.close()
@@ -612,7 +624,7 @@ class CreateInfoScreen(QDialog):
         self.progenitor2field.setText(PekeInfo[0][3])
         self.tfn2field.setText(PekeInfo[0][4])
        # self.birthdayfield.setDate(PekeInfo[0][5])
-        self.Public.setText(PekeInfo[0][5])
+        self.comboPublic.setText(PekeInfo[0][5])
         self.emailfield.setText(PekeInfo[0][6])
 
         print('Trying to edit')
@@ -632,7 +644,7 @@ class CreateInfoScreen(QDialog):
         try:
             db = sqlite3.connect("data.db")
             cursor = db.cursor()
-            query =  "UPDATE PEKES SET Nombre = '{}', Progenitor1 = '{}', Tfn1 = '{}', Progenitor2 = '{}', Tfn2 = '{}', Origen = '{}', Email = '{}' WHERE Nombre = '{}'".format(nombre,progenitor1,tfn1,progenirtor2,tfn2,origen,email,nombre)
+            query =  "UPDATE PEKES SET Nombre = '{}', Progenitor1 = '{}', Tfn1 = '{}', Progenitor2 = '{}', Tfn2 = '{}', Origen = '{}', Email = '{}', h_asginadas = '{}' WHERE Nombre = '{}'".format(nombre,progenitor1,tfn1,progenirtor2,tfn2,origen,email,nombre)
 
             # '''
             #         INSERT INTO Pekes (Nombre, Progenitor1, Tfn1, Progenitor2, Tfn2, Origen, Email)
@@ -659,6 +671,8 @@ class CreateEdittingInfoScreen(QDialog):
         self.loadData()
         self.ComboPekes.currentTextChanged.connect(self.loadData)
         self.BtnEdit.clicked.connect(self.editPeke)
+        self.comboPublic.addItem("Público")
+        self.comboPublic.addItem("Privado")
 
 
     def PopulateComboBox(self):
@@ -688,8 +702,9 @@ class CreateEdittingInfoScreen(QDialog):
         self.tfn1field.setText(PekeInfo[0][2])
         self.progenitor2field.setText(PekeInfo[0][3])
         self.tfn2field.setText(PekeInfo[0][4])
-        self.Public.setText(PekeInfo[0][5])
+        self.comboPublic.setValue(PekeInfo[0][5])
         self.emailfield.setText(PekeInfo[0][6])
+        self.asignacionfield.setText(PekeInfo[0][7])
 
     def editPeke(self):
         db = sqlite3.connect("data.db")
@@ -702,16 +717,14 @@ class CreateEdittingInfoScreen(QDialog):
             tfn1 = self.tfn1field.text()
             progenirtor2 = self.progenitor2field.text()
             tfn2 = self.tfn2field.text()
-            if self.Public.isChecked() == True:
-                origen = "Público"
-            else:
-                origen = "Privado"
+            origen = self.comboPublic.currentText()
             email = self.emailfield.text()
+            h_asignadas = self.asignacionfield.text()
         # if len(email)==0 or len(nombre)==0 or len(progenitor1)==0 or len(tfn1)==0 or len(progenirtor2)==0 or len(tfn2)==0: 
             try:
                 db = sqlite3.connect("data.db")
                 cursor = db.cursor()
-                query =  "UPDATE PEKES SET Nombre = '{}', Progenitor1 = '{}', Tfn1 = '{}', Progenitor2 = '{}', Tfn2 = '{}', Origen = '{}', Email = '{}' WHERE Nombre = '{}'".format(nombre,progenitor1,tfn1,progenirtor2,tfn2,origen,email,kid)
+                query =  "UPDATE PEKES SET Nombre = '{}', Progenitor1 = '{}', Tfn1 = '{}', Progenitor2 = '{}', Tfn2 = '{}', Origen = '{}', Email = '{}', h_asignadas = '{}' WHERE Nombre = '{}'".format(nombre,progenitor1,tfn1,progenirtor2,tfn2,origen,email, h_asignadas, kid)
                 print(query)
                 cursor.execute(query)
                 db.commit()
