@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/vicdoblepe/Escritorio/Psico-project/pyqt5-full-app-tutorial-for-beginners-main/Createkid.ui'
+# Form implementation generated from reading ui file '/home/victorperez/Escritorio/gui/PAM-GUI/templates/Createkid.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -14,34 +14,31 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(1131, 800)
+        Dialog.resize(1111, 715)
         self.bgwidget = QtWidgets.QWidget(Dialog)
-        self.bgwidget.setGeometry(QtCore.QRect(0, 0, 1301, 801))
+        self.bgwidget.setGeometry(QtCore.QRect(0, 0, 1120, 715))
         self.bgwidget.setStyleSheet("background-color:rgb(144, 158, 184);")
         self.bgwidget.setObjectName("bgwidget")
-        self.label = QtWidgets.QLabel(self.bgwidget)
-        self.label.setGeometry(QtCore.QRect(80, 50, 471, 71))
-        self.label.setStyleSheet("font: 36pt \"MS Shell Dlg 2\"; color:rgb(255, 255, 255)")
-        self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(self.bgwidget)
         self.label_2.setGeometry(QtCore.QRect(80, 140, 761, 41))
         self.label_2.setStyleSheet("font: 16pt \"MS Shell Dlg 2\";color:rgb(255, 255, 255)")
         self.label_2.setObjectName("label_2")
         self.savekid = QtWidgets.QPushButton(self.bgwidget)
-        self.savekid.setGeometry(QtCore.QRect(430, 650, 341, 51))
+        self.savekid.setGeometry(QtCore.QRect(350, 590, 341, 51))
         self.savekid.setStyleSheet("border-radius:20px;\n"
-"background-color: rgb(170, 255, 255);\n"
-"font: 14pt \"MS Shell Dlg 2\";")
+"background-color: rgb(214, 234, 248);\n"
+"font: 14pt \"MS Shell Dlg 2\";\n"
+"")
         self.savekid.setObjectName("savekid")
         self.nombrefield = QtWidgets.QLineEdit(self.bgwidget)
-        self.nombrefield.setGeometry(QtCore.QRect(180, 200, 341, 51))
+        self.nombrefield.setGeometry(QtCore.QRect(180, 200, 371, 41))
         self.nombrefield.setStyleSheet("background-color:white;\n"
 "border-radius: 20px;\n"
 "font: 12pt \"MS Shell Dlg 2\";")
         self.nombrefield.setText("")
         self.nombrefield.setObjectName("nombrefield")
         self.progenitor1field = QtWidgets.QLineEdit(self.bgwidget)
-        self.progenitor1field.setGeometry(QtCore.QRect(180, 270, 341, 51))
+        self.progenitor1field.setGeometry(QtCore.QRect(180, 270, 371, 41))
         self.progenitor1field.setStyleSheet("background-color:white;\n"
 "border-radius: 20px;\n"
 "font: 12pt \"MS Shell Dlg 2\";")
@@ -67,26 +64,26 @@ class Ui_Dialog(object):
         self.error.setText("")
         self.error.setObjectName("error")
         self.label_5 = QtWidgets.QLabel(self.bgwidget)
-        self.label_5.setGeometry(QtCore.QRect(50, 440, 81, 20))
+        self.label_5.setGeometry(QtCore.QRect(70, 420, 51, 20))
         self.label_5.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
         self.label_5.setObjectName("label_5")
         self.emailfield = QtWidgets.QLineEdit(self.bgwidget)
-        self.emailfield.setGeometry(QtCore.QRect(180, 430, 341, 51))
+        self.emailfield.setGeometry(QtCore.QRect(170, 410, 371, 41))
         self.emailfield.setStyleSheet("background-color:white;\n"
 "border-radius: 20px;\n"
 "font: 12pt \"MS Shell Dlg 2\";")
         self.emailfield.setObjectName("emailfield")
         self.birthdayfield = QtWidgets.QDateEdit(self.bgwidget)
-        self.birthdayfield.setGeometry(QtCore.QRect(660, 200, 271, 51))
+        self.birthdayfield.setGeometry(QtCore.QRect(660, 200, 351, 51))
         self.birthdayfield.setStyleSheet("background-color:white;\n"
 "font: 12pt \"MS Shell Dlg 2\";")
         self.birthdayfield.setObjectName("birthdayfield")
         self.label_6 = QtWidgets.QLabel(self.bgwidget)
-        self.label_6.setGeometry(QtCore.QRect(560, 220, 81, 20))
+        self.label_6.setGeometry(QtCore.QRect(580, 210, 61, 21))
         self.label_6.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
         self.label_6.setObjectName("label_6")
         self.label_8 = QtWidgets.QLabel(self.bgwidget)
-        self.label_8.setGeometry(QtCore.QRect(560, 450, 81, 20))
+        self.label_8.setGeometry(QtCore.QRect(560, 420, 81, 20))
         self.label_8.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
         self.label_8.setObjectName("label_8")
         self.label_7 = QtWidgets.QLabel(self.bgwidget)
@@ -94,36 +91,33 @@ class Ui_Dialog(object):
         self.label_7.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
         self.label_7.setObjectName("label_7")
         self.progenitor2field = QtWidgets.QLineEdit(self.bgwidget)
-        self.progenitor2field.setGeometry(QtCore.QRect(180, 340, 341, 51))
+        self.progenitor2field.setGeometry(QtCore.QRect(180, 340, 371, 41))
         self.progenitor2field.setStyleSheet("background-color:white;\n"
 "border-radius: 20px;\n"
 "font: 12pt \"MS Shell Dlg 2\";")
         self.progenitor2field.setObjectName("progenitor2field")
         self.tfn1field = QtWidgets.QLineEdit(self.bgwidget)
-        self.tfn1field.setGeometry(QtCore.QRect(640, 270, 341, 51))
+        self.tfn1field.setGeometry(QtCore.QRect(640, 270, 371, 41))
         self.tfn1field.setStyleSheet("background-color:white;\n"
 "border-radius: 20px;\n"
 "font: 12pt \"MS Shell Dlg 2\";")
         self.tfn1field.setObjectName("tfn1field")
         self.tfn2field = QtWidgets.QLineEdit(self.bgwidget)
-        self.tfn2field.setGeometry(QtCore.QRect(640, 340, 341, 51))
+        self.tfn2field.setGeometry(QtCore.QRect(640, 340, 371, 41))
         self.tfn2field.setStyleSheet("background-color:white;\n"
 "border-radius: 20px;\n"
 "font: 12pt \"MS Shell Dlg 2\";")
         self.tfn2field.setObjectName("tfn2field")
         self.label_9 = QtWidgets.QLabel(self.bgwidget)
-        self.label_9.setGeometry(QtCore.QRect(560, 280, 61, 21))
+        self.label_9.setGeometry(QtCore.QRect(570, 280, 61, 21))
         self.label_9.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
         self.label_9.setObjectName("label_9")
         self.label_10 = QtWidgets.QLabel(self.bgwidget)
-        self.label_10.setGeometry(QtCore.QRect(560, 350, 61, 21))
+        self.label_10.setGeometry(QtCore.QRect(570, 350, 61, 21))
         self.label_10.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
         self.label_10.setObjectName("label_10")
-        self.back = QtWidgets.QPushButton(self.bgwidget)
-        self.back.setGeometry(QtCore.QRect(970, 50, 151, 41))
-        self.back.setObjectName("back")
         self.Public = QtWidgets.QCheckBox(self.bgwidget)
-        self.Public.setGeometry(QtCore.QRect(670, 430, 191, 51))
+        self.Public.setGeometry(QtCore.QRect(650, 410, 371, 41))
         font = QtGui.QFont()
         font.setFamily("MS Shell Dlg 2")
         font.setPointSize(12)
@@ -137,6 +131,22 @@ class Ui_Dialog(object):
 "padding-left: 15px")
         self.Public.setChecked(True)
         self.Public.setObjectName("Public")
+        self.back = QtWidgets.QPushButton(self.bgwidget)
+        self.back.setGeometry(QtCore.QRect(920, 100, 141, 61))
+        self.back.setStyleSheet("border-radius:20px;\n"
+"background-color: rgb(214, 234, 248);\n"
+"font: 14pt \"MS Shell Dlg 2\";\n"
+"")
+        self.back.setObjectName("back")
+        self.label_11 = QtWidgets.QLabel(self.bgwidget)
+        self.label_11.setGeometry(QtCore.QRect(0, 0, 1120, 91))
+        self.label_11.setStyleSheet("\n"
+"color:white;\n"
+"font-size: 32px;\n"
+"background: #01BFFF;\n"
+"")
+        self.label_11.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_11.setObjectName("label_11")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -144,8 +154,7 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
-        self.label.setText(_translate("Dialog", "Introduce los datos del niño"))
-        self.label_2.setText(_translate("Dialog", "Now that you\'ve created an account, please fill in your profile."))
+        self.label_2.setText(_translate("Dialog", "Rellena los datos, por favor"))
         self.savekid.setText(_translate("Dialog", "Guardar Niño en la BD"))
         self.label_3.setText(_translate("Dialog", "Nombre completo"))
         self.label_4.setText(_translate("Dialog", "Progenitor 1"))
@@ -155,6 +164,6 @@ class Ui_Dialog(object):
         self.label_7.setText(_translate("Dialog", "Progenitor 2"))
         self.label_9.setText(_translate("Dialog", "Teléfono"))
         self.label_10.setText(_translate("Dialog", "Teléfono"))
-        self.back.setText(_translate("Dialog", "Back to Main"))
         self.Public.setText(_translate("Dialog", "Público"))
-import placeholder_rc
+        self.back.setText(_translate("Dialog", "Back"))
+        self.label_11.setText(_translate("Dialog", "Introduce los datos"))

@@ -2,4 +2,7 @@
 
 
 ## Requirements
-PyQt5 and PyQt5 tools are required. Install with ___pip install pyqt5___ and ___pip install pyqt5-tools___.
+pip install -r requirements.txt
+
+Cuidado con la librería de click. Necesita click~=7.0 y por defecto instala la 8.1
+

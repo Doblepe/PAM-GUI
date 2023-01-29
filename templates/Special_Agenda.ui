@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1920</width>
-    <height>1080</height>
+    <width>1120</width>
+    <height>715</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,10 +19,10 @@
   <widget class="QCalendarWidget" name="calendarWidget">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>180</y>
-     <width>641</width>
-     <height>431</height>
+     <x>30</x>
+     <y>220</y>
+     <width>471</width>
+     <height>261</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -34,10 +34,10 @@ color:black;</string>
   <widget class="QListWidget" name="TaskListWidget">
    <property name="geometry">
     <rect>
-     <x>910</x>
-     <y>190</y>
-     <width>911</width>
-     <height>611</height>
+     <x>570</x>
+     <y>220</y>
+     <width>521</width>
+     <height>271</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -49,7 +49,7 @@ color:black;</string>
     <rect>
      <x>-10</x>
      <y>0</y>
-     <width>1941</width>
+     <width>1131</width>
      <height>91</height>
     </rect>
    </property>
@@ -87,8 +87,8 @@ font:12pt;</string>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>910</x>
-     <y>150</y>
+     <x>560</x>
+     <y>180</y>
      <width>351</width>
      <height>17</height>
     </rect>
@@ -100,7 +100,7 @@ font:12pt;</string>
   <widget class="QPushButton" name="BtnBack">
    <property name="geometry">
     <rect>
-     <x>1750</x>
+     <x>940</x>
      <y>100</y>
      <width>141</width>
      <height>61</height>
@@ -119,8 +119,8 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;
   <widget class="QPushButton" name="saveButton">
    <property name="geometry">
     <rect>
-     <x>1590</x>
-     <y>840</y>
+     <x>840</x>
+     <y>550</y>
      <width>231</width>
      <height>41</height>
     </rect>

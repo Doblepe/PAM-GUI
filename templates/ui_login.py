@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/vicdoblepe/Escritorio/Psico-project/pyqt5-full-app-tutorial-for-beginners-main/login.ui'
+# Form implementation generated from reading ui file '/home/victorperez/Escritorio/gui/PAM-GUI/templates/login.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -14,9 +14,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(1642, 1282)
+        Dialog.resize(1120, 715)
         self.bgwidget = QtWidgets.QWidget(Dialog)
-        self.bgwidget.setGeometry(QtCore.QRect(-30, -10, 1701, 1291))
+        self.bgwidget.setGeometry(QtCore.QRect(-150, -10, 2011, 1101))
         self.bgwidget.setStyleSheet("background-color:rgb(144, 158, 184);")
         self.bgwidget.setObjectName("bgwidget")
         self.label = QtWidgets.QLabel(self.bgwidget)
@@ -72,8 +72,8 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
-        self.label.setText(_translate("Dialog", "Celia\'s Agenda"))
-        self.label_2.setText(_translate("Dialog", "Sign in to your existing account"))
+        self.label.setText(_translate("Dialog", "Magic Agenda"))
+        self.label_2.setText(_translate("Dialog", "Introduce tu usuario y contraseña"))
         self.login.setText(_translate("Dialog", "Log in"))
         self.label_3.setText(_translate("Dialog", "Username"))
         self.label_4.setText(_translate("Dialog", "Password"))

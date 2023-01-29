@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/vicdoblepe/Escritorio/Psico-project/magic_agenda/templates/Info.ui'
+# Form implementation generated from reading ui file '/home/victorperez/Escritorio/gui/PAM-GUI/templates/Info.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -14,10 +14,10 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Calendar(object):
     def setupUi(self, Calendar):
         Calendar.setObjectName("Calendar")
-        Calendar.resize(1920, 1080)
+        Calendar.resize(1120, 715)
         Calendar.setStyleSheet("background-color:rgb(144, 158, 184);")
         self.label = QtWidgets.QLabel(Calendar)
-        self.label.setGeometry(QtCore.QRect(-10, 0, 1951, 91))
+        self.label.setGeometry(QtCore.QRect(0, 0, 1120, 91))
         self.label.setStyleSheet("\n"
 "color:white;\n"
 "font-size: 32px;\n"
@@ -38,7 +38,7 @@ class Ui_Calendar(object):
         self.label_2.setAlignment(QtCore.Qt.AlignCenter)
         self.label_2.setObjectName("label_2")
         self.ShowListWidget = QtWidgets.QListWidget(Calendar)
-        self.ShowListWidget.setGeometry(QtCore.QRect(950, 190, 831, 591))
+        self.ShowListWidget.setGeometry(QtCore.QRect(550, 200, 551, 331))
         self.ShowListWidget.setStyleSheet("background:white")
         self.ShowListWidget.setObjectName("ShowListWidget")
         self.BtnShow = QtWidgets.QPushButton(Calendar)
@@ -52,7 +52,7 @@ class Ui_Calendar(object):
         self.lblcount.setText("")
         self.lblcount.setObjectName("lblcount")
         self.lblNombre = QtWidgets.QLabel(Calendar)
-        self.lblNombre.setGeometry(QtCore.QRect(20, 240, 121, 20))
+        self.lblNombre.setGeometry(QtCore.QRect(20, 240, 61, 20))
         font = QtGui.QFont()
         font.setFamily("MS Shell Dlg 2")
         font.setPointSize(10)
@@ -63,68 +63,68 @@ class Ui_Calendar(object):
         self.lblNombre.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
         self.lblNombre.setObjectName("lblNombre")
         self.lblProge1 = QtWidgets.QLabel(Calendar)
-        self.lblProge1.setGeometry(QtCore.QRect(20, 290, 81, 20))
+        self.lblProge1.setGeometry(QtCore.QRect(10, 290, 81, 20))
         self.lblProge1.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
         self.lblProge1.setObjectName("lblProge1")
         self.lblTfn2 = QtWidgets.QLabel(Calendar)
-        self.lblTfn2.setGeometry(QtCore.QRect(430, 350, 61, 21))
+        self.lblTfn2.setGeometry(QtCore.QRect(10, 490, 61, 21))
         self.lblTfn2.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
         self.lblTfn2.setObjectName("lblTfn2")
         self.lblTfn1 = QtWidgets.QLabel(Calendar)
-        self.lblTfn1.setGeometry(QtCore.QRect(430, 290, 61, 21))
+        self.lblTfn1.setGeometry(QtCore.QRect(10, 350, 61, 21))
         self.lblTfn1.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
         self.lblTfn1.setObjectName("lblTfn1")
         self.lblEmail = QtWidgets.QLabel(Calendar)
-        self.lblEmail.setGeometry(QtCore.QRect(50, 400, 51, 16))
+        self.lblEmail.setGeometry(QtCore.QRect(20, 400, 51, 16))
         self.lblEmail.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
         self.lblEmail.setObjectName("lblEmail")
         self.lblProge2 = QtWidgets.QLabel(Calendar)
-        self.lblProge2.setGeometry(QtCore.QRect(20, 350, 81, 20))
+        self.lblProge2.setGeometry(QtCore.QRect(10, 450, 81, 20))
         self.lblProge2.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
         self.lblProge2.setObjectName("lblProge2")
         self.lblOrigne = QtWidgets.QLabel(Calendar)
-        self.lblOrigne.setGeometry(QtCore.QRect(410, 410, 81, 20))
+        self.lblOrigne.setGeometry(QtCore.QRect(10, 540, 81, 20))
         self.lblOrigne.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
         self.lblOrigne.setObjectName("lblOrigne")
         self.progenitor1field = QtWidgets.QLineEdit(Calendar)
-        self.progenitor1field.setGeometry(QtCore.QRect(120, 280, 271, 31))
+        self.progenitor1field.setGeometry(QtCore.QRect(100, 290, 271, 31))
         self.progenitor1field.setStyleSheet("background-color:white;\n"
 "border-radius: 20px;\n"
 "font: 12pt \"MS Shell Dlg 2\";")
         self.progenitor1field.setObjectName("progenitor1field")
         self.emailfield = QtWidgets.QLineEdit(Calendar)
-        self.emailfield.setGeometry(QtCore.QRect(120, 400, 271, 31))
+        self.emailfield.setGeometry(QtCore.QRect(100, 390, 271, 31))
         self.emailfield.setStyleSheet("background-color:white;\n"
 "border-radius: 20px;\n"
 "font: 12pt \"MS Shell Dlg 2\";")
         self.emailfield.setObjectName("emailfield")
         self.tfn1field = QtWidgets.QLineEdit(Calendar)
-        self.tfn1field.setGeometry(QtCore.QRect(510, 280, 271, 31))
+        self.tfn1field.setGeometry(QtCore.QRect(100, 340, 271, 31))
         self.tfn1field.setStyleSheet("background-color:white;\n"
 "border-radius: 20px;\n"
 "font: 12pt \"MS Shell Dlg 2\";")
         self.tfn1field.setObjectName("tfn1field")
         self.progenitor2field = QtWidgets.QLineEdit(Calendar)
-        self.progenitor2field.setGeometry(QtCore.QRect(120, 340, 271, 31))
+        self.progenitor2field.setGeometry(QtCore.QRect(100, 440, 271, 31))
         self.progenitor2field.setStyleSheet("background-color:white;\n"
 "border-radius: 20px;\n"
 "font: 12pt \"MS Shell Dlg 2\";")
         self.progenitor2field.setObjectName("progenitor2field")
         self.nombrefield = QtWidgets.QLineEdit(Calendar)
-        self.nombrefield.setGeometry(QtCore.QRect(160, 230, 271, 31))
+        self.nombrefield.setGeometry(QtCore.QRect(100, 240, 271, 31))
         self.nombrefield.setStyleSheet("background-color:white;\n"
 "border-radius: 20px;\n"
 "font: 12pt \"MS Shell Dlg 2\";")
         self.nombrefield.setText("")
         self.nombrefield.setObjectName("nombrefield")
         self.tfn2field = QtWidgets.QLineEdit(Calendar)
-        self.tfn2field.setGeometry(QtCore.QRect(510, 340, 271, 31))
+        self.tfn2field.setGeometry(QtCore.QRect(100, 490, 271, 31))
         self.tfn2field.setStyleSheet("background-color:white;\n"
 "border-radius: 20px;\n"
 "font: 12pt \"MS Shell Dlg 2\";")
         self.tfn2field.setObjectName("tfn2field")
         self.Public = QtWidgets.QCheckBox(Calendar)
-        self.Public.setGeometry(QtCore.QRect(500, 400, 271, 31))
+        self.Public.setGeometry(QtCore.QRect(100, 540, 271, 31))
         font = QtGui.QFont()
         font.setFamily("MS Shell Dlg 2")
         font.setPointSize(12)
@@ -139,20 +139,20 @@ class Ui_Calendar(object):
         self.Public.setChecked(True)
         self.Public.setObjectName("Public")
         self.BtnEdit = QtWidgets.QPushButton(Calendar)
-        self.BtnEdit.setGeometry(QtCore.QRect(1640, 880, 231, 41))
+        self.BtnEdit.setGeometry(QtCore.QRect(850, 590, 231, 41))
         self.BtnEdit.setStyleSheet("border-radius:20px;\n"
 "background-color: rgb(214, 234, 248);\n"
 "font: 14pt \"MS Shell Dlg 2\";")
         self.BtnEdit.setObjectName("BtnEdit")
         self.BtnBack = QtWidgets.QPushButton(Calendar)
-        self.BtnBack.setGeometry(QtCore.QRect(1750, 120, 141, 61))
+        self.BtnBack.setGeometry(QtCore.QRect(950, 100, 141, 61))
         self.BtnBack.setStyleSheet("border-radius:20px;\n"
 "background-color: rgb(214, 234, 248);\n"
 "font: 14pt \"MS Shell Dlg 2\";\n"
 "")
         self.BtnBack.setObjectName("BtnBack")
         self.BtnDarAlta = QtWidgets.QPushButton(Calendar)
-        self.BtnDarAlta.setGeometry(QtCore.QRect(1250, 880, 231, 41))
+        self.BtnDarAlta.setGeometry(QtCore.QRect(600, 590, 231, 41))
         self.BtnDarAlta.setStyleSheet("border-radius:20px;\n"
 "background-color: rgb(171, 248, 93);\n"
 "font: 14pt \"MS Shell Dlg 2\";")
@@ -167,7 +167,7 @@ class Ui_Calendar(object):
         self.label.setText(_translate("Calendar", "Información"))
         self.label_2.setText(_translate("Calendar", "Pekes"))
         self.BtnShow.setText(_translate("Calendar", "Show"))
-        self.lblNombre.setText(_translate("Calendar", "Nombre completo"))
+        self.lblNombre.setText(_translate("Calendar", "Nombre "))
         self.lblProge1.setText(_translate("Calendar", "Progenitor 1"))
         self.lblTfn2.setText(_translate("Calendar", "Teléfono"))
         self.lblTfn1.setText(_translate("Calendar", "Teléfono"))

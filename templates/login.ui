@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1920</width>
-    <height>1080</height>
+    <width>1120</width>
+    <height>715</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,7 +16,7 @@
   <widget class="QWidget" name="bgwidget" native="true">
    <property name="geometry">
     <rect>
-     <x>-30</x>
+     <x>-150</x>
      <y>-10</y>
      <width>2011</width>
      <height>1101</height>
@@ -54,7 +54,7 @@
      <string notr="true">font: 16pt &quot;MS Shell Dlg 2&quot;;color:rgb(255, 255, 255)</string>
     </property>
     <property name="text">
-     <string>Sign in to your existing account</string>
+     <string>Introduce tu usuario y contraseña</string>
     </property>
    </widget>
    <widget class="QPushButton" name="login">

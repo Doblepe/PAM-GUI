@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1920</width>
-    <height>1080</height>
+    <width>1126</width>
+    <height>710</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,9 +20,9 @@
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>180</y>
-     <width>641</width>
-     <height>431</height>
+     <y>220</y>
+     <width>471</width>
+     <height>281</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -34,10 +34,10 @@ color:black;</string>
   <widget class="QListWidget" name="TaskListWidget">
    <property name="geometry">
     <rect>
-     <x>1090</x>
-     <y>220</y>
-     <width>731</width>
-     <height>591</height>
+     <x>540</x>
+     <y>210</y>
+     <width>531</width>
+     <height>301</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -47,8 +47,8 @@ color:black;</string>
   <widget class="QPushButton" name="BtnBack">
    <property name="geometry">
     <rect>
-     <x>1650</x>
-     <y>110</y>
+     <x>830</x>
+     <y>120</y>
      <width>231</width>
      <height>41</height>
     </rect>
@@ -66,9 +66,9 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>-10</x>
+     <x>-120</x>
      <y>0</y>
-     <width>1941</width>
+     <width>1251</width>
      <height>91</height>
     </rect>
    </property>
@@ -106,8 +106,8 @@ font:12pt;</string>
   <widget class="QPushButton" name="saveButton">
    <property name="geometry">
     <rect>
-     <x>1580</x>
-     <y>890</y>
+     <x>820</x>
+     <y>540</y>
      <width>231</width>
      <height>41</height>
     </rect>
@@ -119,14 +119,14 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;
 </string>
    </property>
    <property name="text">
-    <string>Save Changes</string>
+    <string>Guardar cambios</string>
    </property>
   </widget>
   <widget class="QPushButton" name="SpecialAgenda">
    <property name="geometry">
     <rect>
-     <x>1390</x>
-     <y>110</y>
+     <x>550</x>
+     <y>120</y>
      <width>231</width>
      <height>41</height>
     </rect>
@@ -144,7 +144,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>1090</x>
+     <x>560</x>
      <y>180</y>
      <width>371</width>
      <height>17</height>
@@ -157,8 +157,8 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;
   <widget class="QPushButton" name="BtnchangeDate">
    <property name="geometry">
     <rect>
-     <x>1230</x>
-     <y>890</y>
+     <x>550</x>
+     <y>540</y>
      <width>231</width>
      <height>41</height>
     </rect>

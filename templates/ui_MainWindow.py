@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/vicdoblepe/Escritorio/Psico-project/pyqt5-full-app-tutorial-for-beginners-main/MainWindow.ui'
+# Form implementation generated from reading ui file '/home/victorperez/Escritorio/gui/PAM-GUI/templates/MainWindow.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -14,13 +14,13 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(1769, 1011)
+        Dialog.resize(1120, 715)
         self.bgwidget = QtWidgets.QWidget(Dialog)
-        self.bgwidget.setGeometry(QtCore.QRect(-60, 0, 1831, 1011))
+        self.bgwidget.setGeometry(QtCore.QRect(0, 0, 1120, 1091))
         self.bgwidget.setStyleSheet("background-color:rgb(144, 158, 184);")
         self.bgwidget.setObjectName("bgwidget")
         self.label = QtWidgets.QLabel(self.bgwidget)
-        self.label.setGeometry(QtCore.QRect(120, 100, 251, 61))
+        self.label.setGeometry(QtCore.QRect(120, 100, 291, 61))
         self.label.setStyleSheet("font: 36pt \"MS Shell Dlg 2\"; color:rgb(255, 255, 255)")
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(self.bgwidget)
@@ -28,38 +28,55 @@ class Ui_Dialog(object):
         self.label_2.setStyleSheet("font: 16pt \"MS Shell Dlg 2\";color:rgb(255, 255, 255)")
         self.label_2.setObjectName("label_2")
         self.citarScreen = QtWidgets.QPushButton(self.bgwidget)
-        self.citarScreen.setGeometry(QtCore.QRect(110, 350, 341, 51))
+        self.citarScreen.setGeometry(QtCore.QRect(90, 270, 341, 51))
         self.citarScreen.setStyleSheet("border-radius:20px;\n"
 "background-color: rgb(170, 255, 255);\n"
 "font: 14pt \"MS Shell Dlg 2\";")
         self.citarScreen.setObjectName("citarScreen")
         self.createKidScreen = QtWidgets.QPushButton(self.bgwidget)
-        self.createKidScreen.setGeometry(QtCore.QRect(490, 350, 341, 51))
+        self.createKidScreen.setGeometry(QtCore.QRect(660, 280, 331, 51))
         self.createKidScreen.setStyleSheet("border-radius:20px;\n"
 "background-color: rgb(170, 255, 255);\n"
 "font: 14pt \"MS Shell Dlg 2\";")
         self.createKidScreen.setObjectName("createKidScreen")
         self.agendaScreen = QtWidgets.QPushButton(self.bgwidget)
-        self.agendaScreen.setGeometry(QtCore.QRect(860, 350, 331, 51))
+        self.agendaScreen.setGeometry(QtCore.QRect(660, 440, 331, 51))
         self.agendaScreen.setStyleSheet("border-radius:20px;\n"
 "background-color: rgb(170, 255, 255);\n"
 "font: 14pt \"MS Shell Dlg 2\";")
         self.agendaScreen.setObjectName("agendaScreen")
         self.computoScreen = QtWidgets.QPushButton(self.bgwidget)
-        self.computoScreen.setGeometry(QtCore.QRect(100, 460, 361, 51))
+        self.computoScreen.setGeometry(QtCore.QRect(80, 350, 361, 51))
         self.computoScreen.setStyleSheet("border-radius:20px;\n"
 "background-color: rgb(170, 255, 255);\n"
 "font: 14pt \"MS Shell Dlg 2\";")
         self.computoScreen.setObjectName("computoScreen")
         self.infoScreen = QtWidgets.QPushButton(self.bgwidget)
-        self.infoScreen.setGeometry(QtCore.QRect(490, 460, 361, 51))
+        self.infoScreen.setGeometry(QtCore.QRect(650, 360, 341, 51))
         self.infoScreen.setStyleSheet("border-radius:20px;\n"
 "background-color: rgb(170, 255, 255);\n"
 "font: 14pt \"MS Shell Dlg 2\";")
         self.infoScreen.setObjectName("infoScreen")
+        self.frame = QtWidgets.QFrame(self.bgwidget)
+        self.frame.setGeometry(QtCore.QRect(90, 440, 371, 131))
+        self.frame.setStyleSheet("background-color: white;\n"
+"border-radius: 30px;")
+        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame.setObjectName("frame")
+        self.activate_whats = QtWidgets.QCheckBox(self.frame)
+        self.activate_whats.setEnabled(False)
+        self.activate_whats.setGeometry(QtCore.QRect(30, 30, 191, 23))
+        self.activate_whats.setObjectName("activate_whats")
+        self.BtnIschecked = QtWidgets.QPushButton(self.frame)
+        self.BtnIschecked.setGeometry(QtCore.QRect(20, 60, 341, 51))
+        self.BtnIschecked.setStyleSheet("border-radius:20px;\n"
+"background-color: rgb(94, 248, 93 );\n"
+"font: 14pt \"MS Shell Dlg 2\";")
+        self.BtnIschecked.setObjectName("BtnIschecked")
         self.actionHome = QtWidgets.QAction(Dialog)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("/home/vicdoblepe/Escritorio/Psico-project/pyqt5-full-app-tutorial-for-beginners-main/fugue-icons-3.5.6/icons/home.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("/home/victorperez/Escritorio/gui/PAM-GUI/templates/fugue-icons-3.5.6/icons/home.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.actionHome.setIcon(icon)
         self.actionHome.setObjectName("actionHome")
 
@@ -69,11 +86,13 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
-        self.label.setText(_translate("Dialog", "Welcome"))
-        self.label_2.setText(_translate("Dialog", "Choose your option"))
-        self.citarScreen.setText(_translate("Dialog", "Citar"))
-        self.createKidScreen.setText(_translate("Dialog", "Create a Kid"))
+        self.label.setText(_translate("Dialog", "Bienvenida"))
+        self.label_2.setText(_translate("Dialog", "¿Adónde quieres ir?"))
+        self.citarScreen.setText(_translate("Dialog", "Dar citas"))
+        self.createKidScreen.setText(_translate("Dialog", "Crear un niño"))
         self.agendaScreen.setText(_translate("Dialog", "Agenda"))
         self.computoScreen.setText(_translate("Dialog", "Cómputo"))
         self.infoScreen.setText(_translate("Dialog", "Información"))
+        self.activate_whats.setText(_translate("Dialog", "Avisar próximas citas"))
+        self.BtnIschecked.setText(_translate("Dialog", "Usa el icono de Timing"))
         self.actionHome.setText(_translate("Dialog", "Home"))
