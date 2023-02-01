@@ -436,7 +436,6 @@ class CreateAgendaScreen(QDialog):
                 try:
                     querySession = "INSERT INTO Schedules (nombre,sesion) VALUES ('{}','{}')".format(nombre,sesion)
                     cursor.execute(query)
-        
                     cursor.execute(querySession)
                     db.commit()
                 except Exception as e:
@@ -446,6 +445,63 @@ class CreateAgendaScreen(QDialog):
         db.close()
         
 
+
+    def gotoMainWindow(self):
+        main = MainWindow()
+        widget.addWidget(main)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+#----------------------------------------------------------------------
+
+class CreateModifyCoordScreen(QDialog):
+    def __init__(self):
+        super(CreateModifyCoordScreen)
+        loadUi("templates/QCalendarModifyUnusualDate.ui",self)
+        self.BtnBack.clicked.connect(self.gotoMainWindow)
+        self.BtnAddNew.clicked.connect(self.addNewDate)
+        db = sqlite3.connect("data.db")
+        cursor = db.cursor()
+        #dateToChange = cursor.execute(query).fetchall()
+        db.commit()
+        #item = QListWidgetItem(str(dateToChange))
+        #self.listWidget.addItem(item)
+        db.close()
+        
+    def addNewDate(self):
+        hourselected = str(self.timefield.text())
+        dateSelected = self.calendarWidget.selectedDate().toPyDate()
+      
+        # if len(hourselected) ==0 or len(kid)==0 or dateSelected ==0: 
+        #     self.lblFeedback.setText(f"Asegúrate de haber rellendao todos los campos")
+        #else:       
+        try:
+            for i in range(self.listWidget.count()):
+                item = self.listWidget.item(i)
+                auxAtributos = item.text()  
+                nombrePreparado = auxAtributos.replace("(","").replace(")","").replace("'","").replace("[","")
+                tupla = nombrePreparado.split(",")
+                nombre = tupla[0]
+                fecha = tupla[2].strip()
+                db = sqlite3.connect("data.db")
+                cursor = db.cursor()
+                query = '''
+                        UPDATE Unusual_task
+                            SET date = ?,
+                                Hour = ?
+                            WHERE Nombre = ? AND date = ?
+                '''
+                row = (dateSelected, hourselected, nombre, fecha)
+                #queryModify = "UPDATE Task SET date = CAST('{}' AS DATETIME) AND Hour = ('{}') WHERE Nombre = ('{}') AND date = DATE('{}');".format(dateSelected,hourselected,nombre, fecha)
+                cursor.execute(query, row)
+                db.commit()
+                db.close()
+                messageBox = QMessageBox()
+                messageBox.setText("La cita ha sido cambiada.")
+                messageBox.setStandardButtons(QMessageBox.Ok)
+                messageBox.exec()
+        except Exception as e:
+                   self.lblFeedback.setText(e)
+                   print(e)
+       
 
     def gotoMainWindow(self):
         main = MainWindow()
@@ -461,6 +517,12 @@ class CreateSpecialAgendaScreen(QDialog):
         self.calendarWidget.selectionChanged.connect(self.calendarDateChanged)
         self.calendarDateChanged()
         self.saveButton.clicked.connect(self.saveChanges)
+        self.btnModificarCoord.clicked.connect(self.gotoModifyCoord)
+
+    def gotoModifyCoord(self):
+        main = CreateModifyCoordScreen()
+        widget.addWidget(main)
+        widget.setCurrentIndex(widget.currentIndex()+1)
 
 
     def calendarDateChanged(self):
@@ -509,6 +571,7 @@ class CreateSpecialAgendaScreen(QDialog):
                 except Exception as e:
                     print(e)
         db.close()
+        self.calendarDateChanged()
 
     def gotoMainWindow(self):
         main = MainWindow()
@@ -624,7 +687,11 @@ class CreateInfoScreen(QDialog):
         self.progenitor2field.setText(PekeInfo[0][3])
         self.tfn2field.setText(PekeInfo[0][4])
        # self.birthdayfield.setDate(PekeInfo[0][5])
-        self.comboPublic.setText(PekeInfo[0][5])
+        if (PekeInfo[0][5] == 'Público'):
+            self.comboPublic.addItem('Privado')
+        else:
+            self.comboPublic.addItem('Privado')
+        self.comboPublic.addItem(PekeInfo[0][5])
         self.emailfield.setText(PekeInfo[0][6])
 
         print('Trying to edit')
@@ -634,10 +701,7 @@ class CreateInfoScreen(QDialog):
         progenirtor2 = self.progenitor2field.text()
         tfn2 = self.tfn2field.text()
        # birthday = self.birthdayfield.text()
-        if self.Public.isChecked() == True:
-            origen = "Público"
-        else:
-            origen = "Privado"
+        origen = self.comboPublic.currentText()
         email = self.emailfield.text()
 
        # if len(email)==0 or len(nombre)==0 or len(progenitor1)==0 or len(tfn1)==0 or len(progenirtor2)==0 or len(tfn2)==0: 
@@ -702,7 +766,6 @@ class CreateEdittingInfoScreen(QDialog):
         self.tfn1field.setText(PekeInfo[0][2])
         self.progenitor2field.setText(PekeInfo[0][3])
         self.tfn2field.setText(PekeInfo[0][4])
-        self.comboPublic.setValue(PekeInfo[0][5])
         self.emailfield.setText(PekeInfo[0][6])
         self.asignacionfield.setText(PekeInfo[0][7])
 
@@ -771,6 +834,9 @@ class CreatComputoScreen(QDialog):
                     if item[5] == 'Público':
                             Atencion_temprana_list.append(item)
                             worksheet.write(row, col, item[0])
+                            print(col)
+                            print(item)
+                            worksheet.write(row, 5, item[7]) #Añado a posteriori el número de citas asignadas
                             row += 1
                     else:
                             Privados_list.append(item)
@@ -805,6 +871,9 @@ class CreatComputoScreen(QDialog):
                 for item in Privados_list:
                     RowPrivadoslist += 1
                     worksheet.write(RowPrivadoslist, col, item[0])
+                    worksheet.write(row, 5, item[7]) #Añado a posteriori el número de citas asignadas
+                    print(item)
+
 
                 # Sumatorio de los públicos
                 worksheet.write_formula((lastRowAtencionTempranalist+1), 6,'=SUMA(G2:G{})'.format(lastRowAtencionTempranalist + 1), header_cell)
